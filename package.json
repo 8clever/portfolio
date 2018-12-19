@@ -20,8 +20,7 @@
     "start": "npm run webpack && node server",
     "node": "node server",
     "webpack": "cd web && npx webpack --progress --dev",
-    "webpack-build": "cd web && npx webpack --progress",
-    "build": "webpack build"
+    "build": "cd web && npx webpack --progress"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
