@@ -1,6 +1,6 @@
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 import queryString from "querystring-es3";
-
+import { Header } from "./Header";
 import { Index } from "./Index";
 
 const Routes = [
@@ -13,23 +13,17 @@ const Routes = [
     {
         component: PageNotFound
     }
-]
+];
 
 import { 
-    Nav, 
-    Navbar, 
-    NavbarToggler,
-    Collapse,
-    NavItem,
-    UncontrolledAlert,
-    NavLink as NavLinkReactstrap
+    UncontrolledAlert
 } from "reactstrap";
 
 export const __ = {
     ERROR: {
         UNAUTHORIZED: "unauthorized"
     }
-}
+};
 
 export const EntryContext = React.createContext();
 
@@ -127,23 +121,6 @@ function Async (Component) {
     };
 }
 
-
-function NavbarBrand(props) {
-    return (
-        <Link {...props} className="navbar-brand">
-            {props.children}
-        </Link>
-    )
-}
-
-function NavLink (props) {
-    return (
-        <Link {...props} className="nav-link">
-            {props.children}
-        </Link>
-    )
-}
-
 function Error ({ error }) {
     return (
         <div className="w-100 text-center">
@@ -153,7 +130,7 @@ function Error ({ error }) {
                 <u>go to home</u>
             </Link>
         </div>
-    )
+    );
 }
 
 function AlertError ({ error }) {
@@ -164,13 +141,13 @@ function AlertError ({ error }) {
                 {error.message || "Generic Error"}
             </p>
         </UncontrolledAlert>
-    )
+    );
 }
 
 function PageNotFound () {
     return (
         <Error error={{ message: "Page Not Found" }} />
-    )
+    );
 }
 
 export class Entry extends React.Component {
@@ -182,7 +159,7 @@ export class Entry extends React.Component {
 
     state = {
         renderKey: 0
-    }
+    };
 
     componentDidMount () {
         this._isMounted = true;
@@ -210,6 +187,7 @@ export class Entry extends React.Component {
     };
 
     render () {
+        console.log(this);
         return (
             <EntryContext.Provider value={this}>
                 <div className="d-flex flex-column app-body">
@@ -222,7 +200,7 @@ export class Entry extends React.Component {
                                 {..._.pick(r, [ "path", "exact" ])} 
                                 key={key + this.state.renderKey} 
                                 component={Header} 
-                            />
+                            />;
                         })
                     }
 
@@ -239,13 +217,13 @@ export class Entry extends React.Component {
                                     return <AlertError 
                                         key={idx}
                                         error={err} 
-                                    />
+                                    />;
                                 })
                             }
                         </div>
                     </div>
                 </div>
             </EntryContext.Provider>
-        )
+        );
     }
 }
