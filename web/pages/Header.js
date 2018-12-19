@@ -20,7 +20,12 @@ export class Header extends React.Component {
         });
     };
 
+    isActive = (pathname) => {
+        return this.props.location.pathname === pathname;
+    };
+
     render() {
+
         return (
             <div>
                 <Navbar expand={"md"}>
@@ -31,8 +36,8 @@ export class Header extends React.Component {
                         <NavbarToggler onClick={this.toggleNavbar} />
                         <Collapse isOpen={!this.state.collapsed} navbar>
                             <Nav navbar className="ml-auto">
-                                <NavButton pathname={"/"} name="Home" />
-                                <NavButton pathname={"/about"} name="About Us" />
+                                <NavButton pathname={"/"} name="Home" active={this.isActive("/")} />
+                                <NavButton pathname={"/about"} name="About Us" active={this.isActive("/about")} />
                             </Nav>
                         </Collapse>
                     </div>
@@ -51,17 +56,12 @@ function NavButton (props) {
                     style={{
                         borderRadius: 20
                     }}
-                    outline={!isActive(props.pathname)}>
+                    outline={!props.active}>
                     {props.name}
                 </Button>
             </NavLink>
         </NavItem>
-        
     );
-}
-
-function isActive(pathname) {
-    return pathname === window.location.pathname;
 }
 
 function NavbarBrand(props) {
