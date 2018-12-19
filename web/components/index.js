@@ -1,1 +1,2 @@
-export * from "./Scroll"
+export * from "./Scroll";
+export * from "./Video";

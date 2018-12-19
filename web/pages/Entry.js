@@ -189,38 +189,33 @@ export class Entry extends React.Component {
     render () {
         return (
             <EntryContext.Provider value={this}>
-                <div className="d-flex flex-column app-body">
+                {
+                    _.map(Routes, (r, key) => {
+                        if (!r.withHeader) return null;
 
+                        return <Route 
+                            {..._.pick(r, [ "path", "exact" ])} 
+                            key={key + this.state.renderKey} 
+                            component={Header} 
+                        />;
+                    })
+                }
+
+                <Switch>
                     {
-                        _.map(Routes, (r, key) => {
-                            if (!r.withHeader) return null;
+                        _.map(Routes, (r, key) => <Route key={key + this.state.renderKey} {...r} />)
+                    }
+                </Switch>
 
-                            return <Route 
-                                {..._.pick(r, [ "path", "exact" ])} 
-                                key={key + this.state.renderKey} 
-                                component={Header} 
+                <div className="err-body p-2">
+                    {
+                        _.map(this.state.clientErrors, (err, idx) => {
+                            return <AlertError 
+                                key={idx}
+                                error={err} 
                             />;
                         })
                     }
-
-                    <div className={ "d-flex align-items-center h-100"}>
-                        <Switch>
-                            {
-                                _.map(Routes, (r, key) => <Route key={key + this.state.renderKey} {...r} />)
-                            }
-                        </Switch>
-
-                        <div className="err-body p-2">
-                            {
-                                _.map(this.state.clientErrors, (err, idx) => {
-                                    return <AlertError 
-                                        key={idx}
-                                        error={err} 
-                                    />;
-                                })
-                            }
-                        </div>
-                    </div>
                 </div>
             </EntryContext.Provider>
         );
