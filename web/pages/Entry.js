@@ -187,7 +187,6 @@ export class Entry extends React.Component {
     };
 
     render () {
-        console.log(this);
         return (
             <EntryContext.Provider value={this}>
                 <div className="d-flex flex-column app-body">

@@ -1,4 +1,4 @@
-import { Scroll } from "../components"
+import { Scroll } from "../components";
 import {
     Component
 } from "../utils";
@@ -19,6 +19,6 @@ export class Index extends Component {
             <Scroll container>
                 HELLO WORLD
             </Scroll>
-        )
+        );
     }
 }
