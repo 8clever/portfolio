@@ -1,0 +1,27 @@
+@import "../../node_modules/bootstrap-scss/bootstrap.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "_variables.scss";
+@import "_bootswatch.scss";
+
+.app-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.err-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.scroll {
+    min-height: 0px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
