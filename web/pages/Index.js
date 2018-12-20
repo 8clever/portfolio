@@ -135,7 +135,8 @@ export class Index extends Component {
                                     <legend className="text-uppercase">{project.name}</legend>
                                     <hr className="separator border-info" />
                                     <div className="mb-4"></div>
-                                    <Row>
+                                    
+                                    <Row noGutters className="justify-content-center">
                                         {
                                             _.map(project.screens, (src, idx) => (
                                                 <Col md={4} lg={3} sm={6} key={idx}>
