@@ -167,23 +167,6 @@ function Icon ({ size, icon, set = "" }) {
     );
 }
 
-function FeatureCard ({ icon, set, title, description }) {
-    return (
-        <div className="d-flex">
-            <div className="w-100 text-right">
-                <Icon 
-                    set={set}
-                    icon={icon}
-                    size="2"
-                />
-            </div>
-            <div className="py-3 px-2 w-100">
-                {title}
-            </div>
-        </div>
-    );
-}
-
 function SkillCard ({ icon, title, description }) {
     return (
         <div className="text-center">
