@@ -11,7 +11,6 @@ import {
     Image, 
     Video
 } from "../components";
-import { cpus } from "os";
 
 export class Index extends Component {
     constructor (props) {
