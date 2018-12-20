@@ -1,5 +1,6 @@
 export * from "./validateInput";
 export * from "./Lightbox";
+export * from "./SpyScroll";
 
 import { validateInput } from "./validateInput";
 

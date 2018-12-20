@@ -4,6 +4,7 @@ export class Video extends React.Component {
 
     state = {
         parentStyles: {
+            minHeight: 300
         }
     };
 
@@ -30,7 +31,7 @@ export class Video extends React.Component {
 
     render () {
         return (
-            <div className="video-header" style={this.state.parentStyles}>
+            <div className={"video-header " + this.props.className} style={this.state.parentStyles}>
                 <video 
                     ref={this.videoRef}
                     poster={this.props.posterUrl} 

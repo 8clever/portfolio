@@ -1,18 +1,22 @@
 import { 
     Nav, 
     Navbar, 
-    NavbarToggler,
     Collapse,
     NavItem,
+    NavLink as ReactNavLink,
     Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { EntryContext } from "./Entry";
-import { Video } from "../components";
+import { SpyScroll } from "../utils";
 
 export class Header extends React.Component {
 
-    state = { collapsed: true };
+    state = { 
+        collapsed: true, 
+        spy: "home",
+        pos: false
+    };
     static contextType = EntryContext;
 
     toggleNavbar = () => {
@@ -21,64 +25,91 @@ export class Header extends React.Component {
         });
     };
 
-    isActive = (pathname) => {
-        return this.props.location.pathname === pathname;
-    };
+    componentDidMount () {
+        window.onscroll = this.onscroll;
+        setImmediate(this.onscroll);
+    }
 
-    getHeader = () => (
-        <Navbar expand={"md"}>
-            <div className="container">
-                <NavbarBrand to={"/"}>
-                    <strong className="text-info h2 font-weight-bold">
-                        VIP - Software
-                    </strong>
-                </NavbarBrand>
-                <NavbarToggler onClick={this.toggleNavbar} />
-                <Collapse isOpen={!this.state.collapsed} navbar>
-                    <Nav navbar className="ml-auto">
-                        <NavButton pathname={"/"} name="Home" active={this.isActive("/")} />
-                        <NavButton pathname={"/about"} name="About Us" active={this.isActive("/about")} />
-                    </Nav>
-                </Collapse>
-            </div>
-        </Navbar>
-    );
+    onscroll = () => {
+        let { spy, pos } = _.cloneDeep(this.state);
+        let spyPos = SpyScroll.getCurrentPosition();
+        let scrolled = spyPos !== "home";
+
+        if (spyPos !== spy) this.setState({ spy: spyPos });
+        if (pos !== scrolled) this.setState({ pos: scrolled });
+    };
 
     render() {
 
-        if (this.isActive("/")) return (
-            <Video 
-                videoUrl={"/coding_man.mp4"}
-                posterUrl={"/coding_man.jpg"}>
-                <div className="navbar-absolute h-100 d-flex flex-column">
-                    {this.getHeader()}
-                    <div className="text-center mx-auto my-auto text-white">
-                        <h1>
-                            PURE DEVELOPMENT
-                        </h1>
-                        We create fast, stable, modern technology projects.
-                    </div>
+        return (
+            <Navbar 
+                style={{
+                    transition: "all 0.5s ease-out"
+                }}
+                expand={"md"} 
+                fixed={"top"} 
+                className={this.state.pos ? "bg-white" : "" }>
+                <div className="container">
+                    <NavbarBrand to={"/"}>
+                        <strong className="text-info h2 font-weight-bold">
+                            VIP - Software
+                        </strong>
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggleNavbar} />
+                    <Collapse isOpen={!this.state.collapsed} navbar>
+                        <Nav navbar className="ml-auto">
+                            <SpyButton 
+                                className="d-none d-sm-none d-md-block"
+                                id="home"
+                                name="Home"
+                                active={this.state.spy === "home"}
+                            />
+                            <SpyButton 
+                                id="our-services"
+                                name="Our Services"
+                                active={this.state.spy === "our-services"}
+                            />
+                            <SpyButton 
+                                id="our-skills"
+                                name="Our Skills"
+                                active={this.state.spy === "our-skills"}
+                            />
+                            <SpyButton 
+                                id="portfolio"
+                                name="Portfolio"
+                                active={this.state.spy === "portfolio"}
+                            />
+                        </Nav>
+                    </Collapse>
                 </div>
-            </Video>
+            </Navbar>
         );
-
-        return this.getHeader();
     }
 }
 
-function NavButton (props) {
+function NavbarToggler ({ onClick }) {
+    return (
+        <div onClick={onClick} className="cursor-pointer d-md-none">
+            <i className="fa fa-2x fa-bars text-info"></i>
+        </div>
+    );
+}
+
+function SpyButton ({ id, name, active, className }) {
     return (
         <NavItem>
-            <NavLink to={props.pathname} >
+            <ReactNavLink >
                 <Button 
-                    color="info" 
-                    style={{
-                        borderRadius: 20
+                    className={className}
+                    onClick={() => { 
+                        SpyScroll.goTo(id); 
                     }}
-                    outline={!props.active}>
-                    {props.name}
+                    color="info" 
+                    style={{ borderRadius: 20 }}
+                    outline={!active}>
+                    {name}
                 </Button>
-            </NavLink>
+            </ReactNavLink>
         </NavItem>
     );
 }
@@ -86,14 +117,6 @@ function NavButton (props) {
 function NavbarBrand(props) {
     return (
         <Link {...props} className="navbar-brand">
-            {props.children}
-        </Link>
-    );
-}
-
-function NavLink (props) {
-    return (
-        <Link {...props} className="nav-link">
             {props.children}
         </Link>
     );
