@@ -17,7 +17,7 @@ export class Video extends React.Component {
 
     componentDidMount () {
         window.onresize = this.setSize;
-        setTimeout(this.setSize, 0);
+        setTimeout(this.setSize, 100);
     }
 
     setSize = () => {

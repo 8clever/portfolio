@@ -9,5 +9,5 @@ export function Scroll (props) {
                 props.children
             }
         </div>
-    )
+    );
 }
