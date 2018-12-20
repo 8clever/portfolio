@@ -13,7 +13,7 @@ const __ = {
 const defaultConfig = {
     env: process.env.ENV || __.ENV.DEV,
     app: {
-        port: 3000
+        port: process.env.PORT || 3000
     },
     projects: _.map(fs.readdirSync(portfolioPath), project => {
         let projectDir = path.join(portfolioPath, project);
