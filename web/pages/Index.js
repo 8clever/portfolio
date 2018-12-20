@@ -52,7 +52,7 @@ export class Index extends Component {
                 </Video>
 
                 <SpyScroll id="our-services" offsetY="-70" />            
-                <div className="d-md-none mb-5">&nbsp;</div>
+                <div className="d-md-none d-lg-none mb-5">&nbsp;</div>
                 <div className="mb-5" />
                 <div className="text-center">
                     <h1 className="font-weight-bold">
