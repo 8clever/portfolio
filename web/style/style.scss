@@ -3,6 +3,7 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "wa-mediabox.scss";
 @import "_variables.scss";
 @import "_bootswatch.scss";
 
@@ -63,4 +64,8 @@
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+}
+
+.cursor-pointer {
+    cursor: pointer
 }

@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require("webpack");
 const _ = require("lodash");
 const argv = require("argv");
-const { __ } = require("../config");
+const { __, pubConfig } = require("../config");
 
 argv.option({
     name: 'dev',
@@ -28,7 +28,7 @@ const jsxLoader = {
             loader: "babel-loader"
         }
     ]
-}
+};
 
 let config = {
     context: __dirname,
@@ -45,7 +45,7 @@ let config = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "CFG": JSON.stringify({})
+            "CFG": JSON.stringify(pubConfig)
         }),
         new webpack.ProvidePlugin({
             React: "react",
@@ -54,7 +54,7 @@ let config = {
             PropTypes: "prop-types"
         })
     ]
-}
+};
 
 let server = _.merge({}, config, {
     target: "node",
@@ -64,7 +64,7 @@ let server = _.merge({}, config, {
     output: {
         libraryTarget: "commonjs2"
     }
-})
+});
 
 let web = _.merge({}, config, {
     entry: [
@@ -73,6 +73,6 @@ let web = _.merge({}, config, {
     output: {
         filename: "web.js"
     }
-})
+});
 
 module.exports = [ web, server ];

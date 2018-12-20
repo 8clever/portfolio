@@ -1,4 +1,5 @@
 export * from "./validateInput";
+export * from "./Lightbox";
 
 import { validateInput } from "./validateInput";
 
@@ -15,7 +16,7 @@ export class Component extends React.Component {
                     value: !_.get(this.state, name)
                 }
             });
-        }
+        };
     }
 
     change (field, options) {
@@ -24,13 +25,13 @@ export class Component extends React.Component {
 			let state = _.cloneDeep(this.state);
 			_.set(state, field, e.target.value);
 			this.setState(state);
-		}
+		};
 	}
 
     changeDate (field) {
         return date => {
             let value = date && date.toDate && date.toDate();
             this.change(field)({ target: { value }});
-        }
+        };
     }
 }

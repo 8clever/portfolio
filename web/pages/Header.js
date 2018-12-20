@@ -56,7 +56,7 @@ export class Header extends React.Component {
                         <h1>
                             PURE DEVELOPMENT
                         </h1>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        We create fast, stable, modern technology projects.
                     </div>
                 </div>
             </Video>

@@ -1,10 +1,12 @@
 import {
-    Component
+    Component,
+    Lightbox
 } from "../utils";
 import {
     Row,
     Col
 } from "reactstrap";
+import { Image } from "../components";
 
 export class Index extends Component {
     constructor (props) {
@@ -16,7 +18,18 @@ export class Index extends Component {
         return {};
     }
 
+    lightbox = new Lightbox();
+
+    componentDidMount () {
+        this.lightbox.init();
+    }
+
+    componentDidUpdate () {
+        this.lightbox.init();
+    }
+
     render() {
+
         return (
             <div>
                 <div className="mb-5" />
@@ -26,77 +39,60 @@ export class Index extends Component {
                         OUR SERVICES
                     </h1>
                     <hr className="separator border-info" />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos!
-                    <br/>
-                    Lorem ipsum dolor sit amet, consectetur.
+                    We can create projects for any platform which you want.
                 </div>
-
                 <div className="mb-5" />
                 
                 <Row noGutters>
-                    <Col md={4}>
-                        <SkillCard 
-                            icon={"laptop-code"}
-                            title="Web"
-                        />
-                    </Col>
-                    <Col md={4}>
-                        <SkillCard 
-                            icon={"desktop"}
-                            title="Desktop"
-                        />
-                    </Col>
-                    <Col md={4}>
-                        <SkillCard 
-                            icon={"mobile-alt"}
-                            title="Mobile"
-                        />
+                    <Col md={{ size: 8, offset: 2 }}>
+                        <Row noGutters>
+                            <Col md={4}>
+                                <SkillCard 
+                                    icon={"laptop-code"}
+                                    title="Web"
+                                />
+                            </Col>
+                            <Col md={4}>
+                                <SkillCard 
+                                    icon={"desktop"}
+                                    title="Desktop"
+                                />
+                            </Col>
+                            <Col md={4}>
+                                <SkillCard 
+                                    icon={"mobile-alt"}
+                                    title="Mobile"
+                                />
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
-                
                 <div className="mb-5" />
 
                 <Section img="/bg1.jpg">
                     <div className="mb-5" />
                     <div className="text-center">
                         <h1 className="font-weight-bold">
-                            SOME FEATURES
+                            OUR SKILLS
                         </h1>
                         <hr className="separator border-info" />
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos!
+                        Some skills which we already use in projects.
                         <br/>
-                        Lorem ipsum dolor sit amet, consectetur.
+                        We learn new technology each day.
+                        <br/>
+                        We belive that we can cover all your needs in projects.
                     </div>
                     <div className="mb-5" />
 
-                    <Row noGutters>
-                        <Col md={6}>
-                            <FeatureCard 
-                                set="b"
-                                icon="react"
-                                title="React"
-                            />
-                        </Col>
-                        <Col md={6}>
-                            <FeatureCard 
-                                set="b"
-                                icon="angular"
-                                title="Angular"
-                            />
-                        </Col>
-                        <Col md={6}>
-                            <FeatureCard 
-                                icon="desktop"
-                                title="Electron"
-                            />
-                        </Col>
-                        <Col md={6}>
-                            <FeatureCard 
-                                icon="mobile-alt"
-                                title="phonegap"
-                            />
-                        </Col>
-                    </Row>
+                    <p className="text-center">
+                        Nodejs, TypeScript, C#, PHP, GoLang 
+                    </p>
+                    <p className="text-center">
+                        MongoDB, MySQL, MsSQL, PouchDB, CouchDB
+                    </p>
+                    <p className="text-center">
+                        React, AngularJS, Backbone, Phonegap, Electron, JQuery, RequireJS, Webpack
+                    </p>
                     <div className="mb-5" />
                 </Section>
 
@@ -105,14 +101,43 @@ export class Index extends Component {
                     <h1 className="font-weight-bold">
                         PORTFOLIO
                     </h1>
-                    <hr className="separator border-info" />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos!
-                    <br/>
-                    Lorem ipsum dolor sit amet, consectetur.
+                    Projects which we writed or maintained.
                 </div>
                 <div className="mb-5" />
-
-
+                
+                <Row noGutters>
+                    <Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 9 }}>
+                        {
+                            _.map(CFG.projects, (project, idx) => (
+                                <div key={idx} className="text-center">
+                                    <legend className="text-uppercase">{project.name}</legend>
+                                    <hr className="separator border-info" />
+                                    <div className="mb-4"></div>
+                                    <Row>
+                                        {
+                                            _.map(project.screens, (src, idx) => (
+                                                <Col md={4} lg={3} sm={6} key={idx}>
+                                                    <Image 
+                                                        style={{
+                                                            boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+                                                        }}
+                                                        mediabox={`project-image-${idx + 1}`}
+                                                        className="mx-auto mb-4"
+                                                        src={src}
+                                                        width={200}
+                                                        height={200}
+                                                    />
+                                                </Col>
+                                            ))
+                                        }
+                                    </Row>
+                                    <div className="mb-5"></div>
+                                </div>
+                            ))
+                        }
+                    </Col>
+                </Row>
+               
             </div>
         );
     }
