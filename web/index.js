@@ -4,19 +4,20 @@ const sassMiddleware = require("node-sass-middleware");
 const distPath = path.join(__dirname, "./dist");
 const React = require("react");
 const ReactDOM = require("react-dom/server");
-const fs = require("fs")
-const webpack = require("webpack");
+const fs = require("fs");
 const { cfg, __ } = require("../config");
 
 module.exports.init = async function () {
     let Router = express();
-    let webpackConfig = require("./webpack.config")[0];
     let indexHTML = fs.readFileSync(__dirname + "/dist/factory.html").toString();
     let { Server } = require("./dist/server.js");
     let Factory = React.createFactory(Server);
 
     // dev hot router
     if (cfg.env === __.ENV.DEV) {
+        const webpack = require("webpack");
+        let webpackConfig = require("./webpack.config")[0];
+
         webpackConfig.mode = __.ENV.DEV;
         webpackConfig.plugins = webpackConfig.plugins || [];
         webpackConfig.plugins.push(
