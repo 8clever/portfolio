@@ -79,6 +79,11 @@ export class Header extends React.Component {
                                 name="Portfolio"
                                 active={this.state.spy === "portfolio"}
                             />
+                            <SpyButton 
+                                id="about-us"
+                                name="About Us"
+                                active={this.state.spy === "about-us"}
+                            />
                         </Nav>
                     </Collapse>
                 </div>

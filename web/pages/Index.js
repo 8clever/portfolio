@@ -11,6 +11,7 @@ import {
     Image, 
     Video
 } from "../components";
+import { cpus } from "os";
 
 export class Index extends Component {
     constructor (props) {
@@ -135,7 +136,7 @@ export class Index extends Component {
                                     <legend className="text-uppercase">{project.name}</legend>
                                     <hr className="separator border-info" />
                                     <div className="mb-4"></div>
-                                    
+
                                     <Row noGutters className="justify-content-center">
                                         {
                                             _.map(project.screens, (src, idx) => (
@@ -160,6 +161,37 @@ export class Index extends Component {
                         }
                     </Col>
                 </Row>
+                
+                <SpyScroll id="about-us" offset="-70" />
+                <Section img="/bg2.jpg">
+                    <div className="mb-5"></div>
+                    <div className="text-center">
+                        <h1 className="font-weight-bold">
+                            About Us
+                        </h1>
+                        <hr className="separator border-info" />
+                    </div>
+                    <div className="mb-5" />
+
+                    <Row noGutters>
+                        <Col md={6} className="text-center">
+                            <FeatureCard
+                                color="white"
+                                icon="clock"
+                                title="Working Hours"
+                                description="6773"
+                            />
+                        </Col>
+                        <Col md={6}>
+                            <b>Full Name</b>: Ivan Vityaev
+                            <br/>
+                            <b>e-mail</b>: godofluck89@gmail.componentDidMount
+                            <br/>
+                            <b>phone</b>: 8 (906) 648-28-37
+                        </Col>
+                    </Row>
+                    <div className="mb-5"></div>
+                </Section>
                
             </div>
         );
@@ -180,11 +212,29 @@ function Section ({ children, img }) {
     );
 }
 
-function Icon ({ size, icon, set = "" }) {
+function Icon ({ size, icon, set = "", color = "info" }) {
     return (
         <div className="icon text-center">
             <div className="d-flex h-100">
-                <i className={`fa${set} fa-${icon} fa-${size}x mx-auto my-auto text-info`} />   
+                <i className={`fa${set} fa-${icon} fa-${size}x mx-auto my-auto text-${color}`} />   
+            </div>
+        </div>
+    );
+}
+
+function FeatureCard ({ icon, set, title, description, color }) {
+    return (
+        <div className="d-flex">
+            <div className="w-100 text-right">
+                <Icon 
+                    color={color}
+                    set={set}
+                    icon={icon}
+                    size="2"
+                />
+            </div>
+            <div className="py-3 px-2 w-100 text-left">
+                <b>{title}:</b> {description}
             </div>
         </div>
     );
