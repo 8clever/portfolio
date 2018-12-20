@@ -19,8 +19,8 @@
     "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git"
   },
   "scripts": {
-    "start": "npm run webpack && node server",
-    "node": "node server",
+    "start": "node server",
+    "node": "npm run webpack node server",
     "webpack": "cd web && npx webpack --progress --dev",
     "build": "cd web && npx webpack --progress"
   },

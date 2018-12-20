@@ -11,7 +11,7 @@ const __ = {
 };
 
 const defaultConfig = {
-    env: __.ENV.DEV,
+    env: process.env.ENV || __.ENV.DEV,
     app: {
         port: 3000
     },

@@ -7,6 +7,6 @@ export class Server extends React.Component {
             <StaticRouter {...this.props} >
                 <Entry {...this.props} />
             </StaticRouter>
-        )
+        );
     }
 }
