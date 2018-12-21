@@ -3,9 +3,7 @@
 export class Video extends React.Component {
 
     state = {
-        parentStyles: {
-            minHeight: 300
-        }
+        parentStyles: {}
     };
 
     static propTypes = {
@@ -17,7 +15,6 @@ export class Video extends React.Component {
 
     componentDidMount () {
         window.onresize = this.setSize;
-        setTimeout(this.setSize, 100);
     }
 
     setSize = () => {

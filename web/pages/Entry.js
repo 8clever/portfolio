@@ -110,25 +110,33 @@ function Async (Component) {
                 return <__PrevComponent {...__prevData} />;
             }
 
-            return (
-                <div className="w-100 text-center">
-                    <div className="fa fa-spin fa-spinner text-danger"></div>
-                    {" "}
-                    Loading...
-                </div>
-            );
+            return <Loading />;
         }
     };
 }
 
+function Loading () {
+    return (
+        <div className="absolute d-flex">
+            <div className="mx-auto my-auto">
+                <div className="fa fa-spin fa-spinner text-danger"></div>
+                {" "}
+                Loading...
+            </div>
+        </div>
+    );
+}
+
 function Error ({ error }) {
     return (
-        <div className="w-100 text-center">
-            { error.message || "Generic Error" }
-            <br />
-            <Link to={"/"}>
-                <u>go to home</u>
-            </Link>
+        <div className="absolute d-flex">
+            <div className="mx-auto my-auto text-center">
+                { error.message || "Generic Error" }
+                <br />
+                <Link to={"/"}>
+                    <u>go to home</u>
+                </Link>
+            </div>
         </div>
     );
 }
