@@ -184,7 +184,7 @@ export class Index extends Component {
                         <Col md={6}>
                             <b>Full Name</b>: Ivan Vityaev
                             <br/>
-                            <b>e-mail</b>: godofluck89@gmail.componentDidMount
+                            <b>e-mail</b>: godofluck89@gmail.com
                             <br/>
                             <b>phone</b>: 8 (906) 648-28-37
                         </Col>
