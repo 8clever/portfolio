@@ -34,8 +34,6 @@ export class Index extends Component {
     }
 
     render() {
-        console.log(this.state);
-
         return (
             <div>
                 <SpyScroll id="home" />
