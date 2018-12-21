@@ -5,7 +5,8 @@ import {
 } from "../utils";
 import {
     Row,
-    Col
+    Col,
+    Collapse
 } from "reactstrap";
 import { 
     Image, 
@@ -33,6 +34,7 @@ export class Index extends Component {
     }
 
     render() {
+        console.log(this.state);
 
         return (
             <div>
@@ -132,34 +134,45 @@ export class Index extends Component {
                         {
                             _.map(CFG.projects, (project, idx) => (
                                 <div key={idx} className="text-center">
-                                    <legend className="text-uppercase">{project.name}</legend>
-                                    <hr className="separator border-info" />
-                                    <div className="mb-4"></div>
-
-                                    <Row noGutters className="justify-content-center">
+                                    <legend className="text-uppercase cursor-pointer" onClick={this.toggle(project.name)}>
+                                        {project.name}
+                                        {" "}
                                         {
-                                            _.map(project.screens, (src, idx) => (
-                                                <Col md={4} lg={3} sm={6} key={idx}>
-                                                    <Image 
-                                                        style={{
-                                                            boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-                                                        }}
-                                                        mediabox={`project-image-${idx + 1}`}
-                                                        className="mx-auto mb-4"
-                                                        src={src}
-                                                        width={200}
-                                                        height={200}
-                                                    />
-                                                </Col>
-                                            ))
+                                            this.state[project.name] ?
+                                            <i className="fa fa-minus text-info"/> :
+                                            <i className="fa fa-plus text-info"/>    
                                         }
-                                    </Row>
-                                    <div className="mb-5"></div>
+                                    </legend>
+                                    
+                                    <Collapse isOpen={!!this.state[project.name]}>
+                                        <hr className="separator border-info" />
+                                        <div className="mb-4"></div>
+
+                                        <Row noGutters className="justify-content-center">
+                                            {
+                                                _.map(project.screens, (src, idx) => (
+                                                    <Col md={4} lg={3} sm={6} key={idx}>
+                                                        <Image 
+                                                            style={{
+                                                                boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+                                                            }}
+                                                            mediabox={`project-image-${idx + 1}`}
+                                                            className="mx-auto mb-4"
+                                                            src={src}
+                                                            width={200}
+                                                            height={200}
+                                                        />
+                                                    </Col>
+                                                ))
+                                            }
+                                        </Row>
+                                    </Collapse>
                                 </div>
                             ))
                         }
                     </Col>
                 </Row>
+                <div className="mb-5"></div>
                 
                 <SpyScroll id="about-us" offset="-70" />
                 <Section img="/bg2.jpg">
