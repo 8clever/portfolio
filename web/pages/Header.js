@@ -51,6 +51,8 @@ export class Header extends React.Component {
                 className={this.state.pos ? "bg-white" : "" }>
                 <div className="container">
                     <NavbarBrand to={"/"}>
+                        <img height="43px" src="/logo.png" />
+                        &nbsp;
                         <strong className="text-info h2 font-weight-bold">
                             VIP - Software
                         </strong>
