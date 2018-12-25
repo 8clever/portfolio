@@ -42,7 +42,7 @@ export class Index extends Component {
                     videoUrl={"/coding_man.mp4"}
                     posterUrl={"/coding_man.jpg"}>
                     <div className="absolute d-flex">
-                        <div className={"text-center mx-auto my-auto p-4 border text-white"}>
+                        <div className={"text-center mx-auto my-auto p-5 border text-white"}>
                             <div className="display-4 font-weight-bold">
                                 PURE DEVELOPMENT
                             </div>
