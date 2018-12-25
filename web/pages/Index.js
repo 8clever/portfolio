@@ -170,7 +170,7 @@ export class Index extends Component {
                                                             style={{
                                                                 boxShadow: "0 0 10px rgba(0,0,0,0.1)"
                                                             }}
-                                                            mediabox={`project-image-${idx + 1}`}
+                                                            mediabox={project.name}
                                                             className="mx-auto mb-4"
                                                             src={src}
                                                             width={200}

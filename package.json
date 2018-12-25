@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "node": "npm run webpack && node server",
+    "start-dev": "npm run webpack && node server",
     "webpack": "cd web && npx webpack --progress --dev",
     "build": "cd web && npx webpack --progress"
   },
