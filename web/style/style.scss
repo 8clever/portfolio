@@ -34,20 +34,12 @@
     }
 }
 
-.navbar-absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-};
-
 .separator {
     margin: auto;
     width: 70px;
     position: relative;
     border-top: 2px solid #61d2b4;
-    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .icon {
@@ -77,4 +69,8 @@
     top: 0;
     bottom: 0;
     right: 0;
+}
+
+.border-radius-20 {
+    border-radius: 20px;
 }

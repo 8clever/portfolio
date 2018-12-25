@@ -41,11 +41,11 @@ export class Index extends Component {
                     className="d-none d-sm-none d-md-block"
                     videoUrl={"/coding_man.mp4"}
                     posterUrl={"/coding_man.jpg"}>
-                    <div className="navbar-absolute h-100 d-flex flex-column">
-                        <div className="text-center mx-auto my-auto text-white">
-                            <h1>
+                    <div className="absolute d-flex">
+                        <div className={"text-center mx-auto my-auto p-4 border text-white"}>
+                            <div className="display-4 font-weight-bold">
                                 PURE DEVELOPMENT
-                            </h1>
+                            </div>
                             We create fast, stable, modern technology projects.
                         </div>
                     </div>
@@ -58,7 +58,7 @@ export class Index extends Component {
                     <h1 className="font-weight-bold">
                         OUR SERVICES
                     </h1>
-                    <hr className="separator border-info" />
+                   <Separator />
                     We can create projects for any platform which you want.
                 </div>
                 <div className="mb-5" />
@@ -96,7 +96,7 @@ export class Index extends Component {
                         <h1 className="font-weight-bold">
                             OUR SKILLS
                         </h1>
-                        <hr className="separator border-info" />
+                        <Separator />
                         Some skills which we already use in projects.
                         <br/>
                         We learn new technology each day.
@@ -105,15 +105,30 @@ export class Index extends Component {
                     </div>
                     <div className="mb-5" />
 
-                    <p className="text-center">
-                        Nodejs, TypeScript, C#, PHP, GoLang 
-                    </p>
-                    <p className="text-center">
-                        MongoDB, MySQL, MsSQL, PouchDB, CouchDB
-                    </p>
-                    <p className="text-center">
-                        React, AngularJS, Backbone, Phonegap, Electron, JQuery, RequireJS, Webpack
-                    </p>
+                    <h4 className="text-center">
+                        <DotPoint/> Nodejs &nbsp;
+                        <DotPoint/> TypeScript &nbsp;
+                        <DotPoint/> C# &nbsp;
+                        <DotPoint/> PHP &nbsp;
+                        <DotPoint/> GoLang
+                    </h4>
+                    <h4 className="text-center">
+                        <DotPoint/> MongoDB &nbsp;
+                        <DotPoint/> MySQL &nbsp;
+                        <DotPoint/> MsSQL &nbsp;
+                        <DotPoint/> PouchDB &nbsp;
+                        <DotPoint/> CouchDB &nbsp;
+                    </h4>
+                    <h4 className="text-center">
+                        <DotPoint/> React &nbsp;
+                        <DotPoint/> Angular &nbsp;
+                        <DotPoint/> Backbone &nbsp;
+                        <DotPoint/> Phonegap &nbsp;
+                        <DotPoint/> Electron &nbsp;
+                        <DotPoint/> JQuery &nbsp;
+                        <DotPoint/> RequireJS &nbsp;
+                        <DotPoint/> Webpack &nbsp;
+                    </h4>
                     <div className="mb-5" />
                 </Section>
 
@@ -123,6 +138,7 @@ export class Index extends Component {
                     <h1 className="font-weight-bold">
                         PORTFOLIO
                     </h1>
+                    <Separator />
                     Projects which we writed or maintained.
                 </div>
                 <div className="mb-5" />
@@ -143,7 +159,7 @@ export class Index extends Component {
                                     </legend>
                                     
                                     <Collapse isOpen={!!this.state[project.name]}>
-                                        <hr className="separator border-info" />
+                                        <Separator />
                                         <div className="mb-4"></div>
 
                                         <Row noGutters className="justify-content-center">
@@ -179,7 +195,7 @@ export class Index extends Component {
                         <h1 className="font-weight-bold">
                             About Us
                         </h1>
-                        <hr className="separator border-info" />
+                        <Separator/>
                     </div>
                     <div className="mb-5" />
 
@@ -188,7 +204,7 @@ export class Index extends Component {
                             <FeatureCard
                                 color="white"
                                 icon="clock"
-                                title="Working Hours"
+                                title="Total Working Hours"
                                 description="6773"
                             />
                         </Col>
@@ -198,6 +214,10 @@ export class Index extends Component {
                             <b>e-mail</b>: godofluck89@gmail.com
                             <br/>
                             <b>phone</b>: 8 (906) 648-28-37
+                            <br/>
+                            <b>Source Code</b>: <a href="https://github.com/8clever/portfolio">
+                                https://github.com/8clever/portfolio
+                            </a>
                         </Col>
                     </Row>
                     <div className="mb-5"></div>
@@ -206,6 +226,20 @@ export class Index extends Component {
             </div>
         );
     }
+}
+
+function DotPoint () {
+    return (
+        <small>
+            <i className="fa fa-circle small" /> 
+        </small>
+    );
+}
+
+function Separator () {
+    return (
+        <hr className="separator border-info" />
+    );
 }
 
 function Section ({ children, img }) {
@@ -243,7 +277,7 @@ function FeatureCard ({ icon, set, title, description, color }) {
                     size="2"
                 />
             </div>
-            <div className="py-3 px-2 w-100 text-left">
+            <div className="p-3 w-100 text-left">
                 <b>{title}:</b> {description}
             </div>
         </div>

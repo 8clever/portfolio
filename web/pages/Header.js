@@ -86,6 +86,18 @@ export class Header extends React.Component {
                                 name="About Us"
                                 active={this.state.spy === "about-us"}
                             />
+                            <NavItem>
+                                <ReactNavLink href="https://github.com/8clever/">
+                                    <Button
+                                        className="border-radius-20"
+                                        outline
+                                        color="info">
+                                        <i className="fab fa-github" />
+                                        {" "}
+                                        GitHub
+                                    </Button>
+                                </ReactNavLink>
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
@@ -107,12 +119,11 @@ function SpyButton ({ id, name, active, className }) {
         <NavItem>
             <ReactNavLink >
                 <Button 
-                    className={className}
+                    className={"border-radius-20 " + className}
                     onClick={() => { 
                         SpyScroll.goTo(id); 
                     }}
                     color="info" 
-                    style={{ borderRadius: 20 }}
                     outline={!active}>
                     {name}
                 </Button>
