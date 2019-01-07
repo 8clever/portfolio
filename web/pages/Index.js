@@ -211,12 +211,25 @@ export class Index extends Component {
                         <Col md={6}>
                             <b>Full Name</b>: Ivan Vityaev
                             <br/>
+                            
                             <b>e-mail</b>: godofluck89@gmail.com
                             <br/>
+                            
                             <b>phone</b>: 8 (906) 648-28-37
                             <br/>
+
                             <b>Source Code</b>: <a href="https://github.com/8clever/portfolio">
                                 https://github.com/8clever/portfolio
+                            </a>
+                            <br/>
+
+                            <a href="https://vk.com/ivanvityaev">
+                                <i className="fab fa-vk fa-2x text-white" />
+                            </a>
+                            {" "}
+
+                            <a href="https://www.facebook.com/indigo.extreem">
+                                <i className="fab fa-facebook fa-2x text-white" />
                             </a>
                         </Col>
                     </Row>

@@ -47,7 +47,9 @@ module.exports.init = async function () {
     }));
 
     // static
-    Router.use(express.static(distPath));
+    Router.use(express.static(distPath, {
+        maxAge: "1d"
+    }));
 
     // react end point
     Router.get("*", (req, res, next) => {
