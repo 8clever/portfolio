@@ -2,4 +2,4 @@
 My portfolio
 
 #### Project link
-https://vip-software.herokuapp.com
+https://vip-software.ru
