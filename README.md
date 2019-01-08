@@ -2,4 +2,4 @@
 My portfolio
 
 #### Project link
-https://vip-software.ru
+http://vip-software.ru
