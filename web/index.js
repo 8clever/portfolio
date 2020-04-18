@@ -7,6 +7,8 @@ const ReactDOM = require("react-dom/server");
 const fs = require("fs");
 const { cfg, __ } = require("../config");
 
+const hash = new Date().valueOf();
+
 module.exports.init = async function () {
 	let Router = express();
 	let indexHTML = fs.readFileSync(__dirname + "/dist/factory.html").toString();
@@ -70,6 +72,7 @@ module.exports.init = async function () {
 
 		let __html = indexHTML
 			.replace(/<% prefix %>/gmi, "")
+			.replace(/<% hash %>/gmi, hash)
 			.replace(/<div id="root"><\/div>/, `<div id="root">${__component}</div>`);
 
 		res.send(__html);
