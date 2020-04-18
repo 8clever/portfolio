@@ -2,45 +2,36 @@
 
 export class Video extends React.Component {
 
-    state = {
-        parentStyles: {}
-    };
+	state = {
+		parentStyles: {}
+	};
 
-    static propTypes = {
-        videoUrl: PropTypes.string.isRequired,
-        posterUrl: PropTypes.string.isRequired
-    };
+	static propTypes = {
+		ratio: PropTypes.string.isRequired,
+		videoUrl: PropTypes.string.isRequired,
+		posterUrl: PropTypes.string.isRequired
+	};
 
-    videoRef = React.createRef();
+	render() {
+		return (
+			<div 
+				className={"video-header " + this.props.className} 
+				style={{
+					position: "relative",
+					paddingTop: this.props.ratio
+				}}>
+				<video
+					className="absolute"
+					poster={this.props.posterUrl}
+					playsInline
+					autoPlay
+					muted
+					loop>
+					<source src={this.props.videoUrl} type="video/mp4" />
+				</video>
 
-    componentDidMount () {
-        window.onresize = this.setSize;
-    }
-
-    setSize = () => {
-        let { parentStyles } = _.cloneDeep(this.state);
-        let video = this.videoRef.current.getBoundingClientRect();
-        parentStyles.height = video.height;
-        this.setState({
-            parentStyles
-        });
-    };
-
-    render () {
-        return (
-            <div className={"video-header " + this.props.className} style={this.state.parentStyles}>
-                <video 
-                    ref={this.videoRef}
-                    poster={this.props.posterUrl} 
-                    playsInline 
-                    autoPlay
-                    muted 
-                    loop>
-                    <source src={this.props.videoUrl} type="video/mp4" />
-                </video>
-
-                {this.props.children}
-            </div>
-        );
-    }
+				{this.props.children}
+			</div>
+		);
+	}
 }

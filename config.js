@@ -16,11 +16,13 @@ const defaultConfig = {
         port: process.env.PORT || 3000
     },
     projects: _.map(fs.readdirSync(portfolioPath), project => {
-        let projectDir = path.join(portfolioPath, project);
-        let files = fs.readdirSync(projectDir);
-        let screens = _.filter(files, f => /.png/.test(f));
+        const projectDir = path.join(portfolioPath, project);
+        const files = fs.readdirSync(projectDir);
+        const screens = _.filter(files, f => /.png/.test(f));
+        const description = fs.readFileSync(`${projectDir}/info.txt`).toString();
 
         return {
+            description,
             name: project,
             screens: _.map(screens, s => `portfolio/${project}/${s}`)
         };

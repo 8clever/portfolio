@@ -1,7 +1,7 @@
 export class Lightbox {
     init = () => {
         setImmediate(() => {
-            require("wa-mediabox/src/wa-mediabox");
+            require("wa-mediabox/dist/wa-mediabox.min");
             window.WAMediaBox.bindAll(document.querySelector("body"));
             window.WAMediaBox.lang = {
                 prev: "Previous",
