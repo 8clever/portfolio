@@ -6,7 +6,10 @@ import {
 import {
 	Row,
 	Col,
-	Collapse
+	Collapse,
+	Card,
+	CardBody,
+	CardFooter
 } from "reactstrap";
 import {
 	Image,
@@ -164,28 +167,34 @@ export class Index extends Component {
 										<Separator />
 										<div className="mb-4"></div>
 
-										<Row noGutters className="justify-content-center">
-											{
-												_.map(project.screens, (src, idx) => (
-													<Col md={4} lg={3} sm={6} key={idx}>
-														<Image
-															style={{
-																boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-															}}
-															mediabox={project.name}
-															className="mx-auto mb-4"
-															src={src}
-															width={200}
-															height={200}
-														/>
-													</Col>
-												))
-											}
-										</Row>
-
-										<MD
-											source={project.description}
-										/>
+										<Card>
+											<CardBody>
+												<MD
+													source={project.description}
+												/>
+											</CardBody>
+											<CardFooter>
+												<Row noGutters className="justify-content-center">
+													{
+														_.map(project.screens, (src, idx) => (
+															<Col md={4} lg={3} sm={6} key={idx}>
+																<Image
+																	style={{
+																		boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+																	}}
+																	mediabox={project.name}
+																	className="mx-auto mb-4"
+																	src={src}
+																	width={200}
+																	height={200}
+																/>
+															</Col>
+														))
+													}
+												</Row>
+											</CardFooter>
+										</Card>
+										
 									</Collapse>
 								</div>
 							))
@@ -200,7 +209,7 @@ export class Index extends Component {
 					<div className="text-center">
 						<h1 className="font-weight-bold">
 							About Us
-                        </h1>
+						</h1>
 						<Separator />
 					</div>
 					<div className="mb-5" />
