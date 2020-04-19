@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+web/dist/web.js
+web/dist/server.js
+web/dist/style.css
