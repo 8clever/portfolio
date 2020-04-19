@@ -100,40 +100,42 @@ export class Index extends Component {
 					<div className="text-center">
 						<h1 className="font-weight-bold">
 							OUR SKILLS
-                        </h1>
+						</h1>
 						<Separator />
 						Some skills which we already use in projects.
-                        <br />
+						<br />
 						We learn new technology each day.
-                        <br />
+						<br />
 						We belive that we can cover all your needs in projects.
-                    </div>
-					<div className="mb-5" />
+					</div>
 
-					<h4 className="text-center">
-						<DotPoint /> Nodejs &nbsp;
+					<div className="mb-5" />
+					<div className="px-4">
+						<h4 className="text-center">
+							<DotPoint /> Nodejs &nbsp;
 							<DotPoint /> TypeScript &nbsp;
 							<DotPoint /> C# &nbsp;
 							<DotPoint /> PHP &nbsp;
 							<DotPoint /> GoLang
-					</h4>
-					<h4 className="text-center">
-						<DotPoint /> MongoDB &nbsp;
+						</h4>
+						<h4 className="text-center">
+							<DotPoint /> MongoDB &nbsp;
 							<DotPoint /> MySQL &nbsp;
 							<DotPoint /> MsSQL &nbsp;
 							<DotPoint /> PouchDB &nbsp;
 							<DotPoint /> CouchDB &nbsp;
-					</h4>
-					<h4 className="text-center">
-						<DotPoint /> React &nbsp;
-								<DotPoint /> Angular &nbsp;
-								<DotPoint /> Backbone &nbsp;
-								<DotPoint /> Phonegap &nbsp;
-								<DotPoint /> Electron &nbsp;
-								<DotPoint /> JQuery &nbsp;
-								<DotPoint /> RequireJS &nbsp;
-								<DotPoint /> Webpack &nbsp;
 						</h4>
+						<h4 className="text-center">
+							<DotPoint /> React &nbsp;
+							<DotPoint /> Angular &nbsp;
+							<DotPoint /> Backbone &nbsp;
+							<DotPoint /> Phonegap &nbsp;
+							<DotPoint /> Electron &nbsp;
+							<DotPoint /> JQuery &nbsp;
+							<DotPoint /> RequireJS &nbsp;
+							<DotPoint /> Webpack &nbsp;
+						</h4>
+					</div>
 					<div className="mb-5" />
 				</Section>
 
@@ -142,7 +144,7 @@ export class Index extends Component {
 				<div className="text-center">
 					<h1 className="font-weight-bold">
 						PORTFOLIO
-                    </h1>
+					</h1>
 					<Separator />
 					Projects which we writed or maintained.
                 </div>
@@ -215,7 +217,7 @@ export class Index extends Component {
 					<div className="mb-5" />
 
 					<Row noGutters>
-						<Col md={6} className="text-center">
+						<Col md={6} className="px-4">
 							<FeatureCard
 								color="white"
 								icon="clock"
@@ -223,7 +225,7 @@ export class Index extends Component {
 								description="10000+"
 							/>
 						</Col>
-						<Col md={6}>
+						<Col md={6} className="px-4">
 							<b>Full Name</b>: Ivan Vityaev
 							<br />
 
@@ -297,7 +299,7 @@ function Icon({ size, icon, set = "", color = "info" }) {
 function FeatureCard({ icon, set, title, description, color }) {
 	return (
 		<div className="d-flex">
-			<div className="w-100 text-right">
+			<div className="w-50 text-right">
 				<Icon
 					color={color}
 					set={set}
