@@ -17,7 +17,8 @@ import {
 	Video
 } from "../components";
 import MD from "react-markdown";
-import { I18n } from "../store/lang";
+import { I18n, langStore } from "../store/lang";
+import { Observer } from "mobx-react-lite";
 
 export class Index extends Component {
 	constructor(props) {
@@ -172,9 +173,11 @@ export class Index extends Component {
 
 										<Card>
 											<CardBody>
-												<MD
-													source={project.description}
-												/>
+												<Observer children={() => (
+													<MD
+														source={project.description[langStore.lang]}
+													/>
+												)} />
 											</CardBody>
 											<CardFooter>
 												<Row noGutters className="justify-content-center">

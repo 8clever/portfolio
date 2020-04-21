@@ -1,0 +1,16 @@
+### Rosstat
+
+Digital analytical platform for collecting information on legal and individual entrepreneurs.
+
+The main functionality:
+  - View and edit objects of observation
+  - Functional Algorithms
+  - Catalogs
+  - Selection criteria
+  - Metadata
+
+Technology Stack: Java, React, TypeScript, PostgreSQL
+
+Team: 2 analysts, 1 Front-end developer, 7 Back-end developers, 1 QA
+
+Position: Tim Lead Front End.

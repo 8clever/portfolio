@@ -5,8 +5,8 @@ export class Image extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			width: 0,
-			height: 0,
+			width: "100%",
+			height: null,
 			isNoImage: false
 		};
 	}
@@ -38,7 +38,7 @@ export class Image extends React.Component {
 		}
 	};
 
-	showNoImage = () => {
+	showNoImage = (e) => {
 		if (this.props.noImageSrc == undefined) {
 			return;
 		}
@@ -66,7 +66,8 @@ export class Image extends React.Component {
 				border: "1px solid #ccc",
 				width: this.props.width + 4,
 				height: this.props.height + 4,
-				backgroundColor: this.props.backgroundColor
+				backgroundColor: this.props.backgroundColor,
+				overflow: "hidden"
 			},
 			image: {
 				width: this.state.width,

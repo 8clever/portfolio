@@ -10,6 +10,8 @@ const __ = {
     }
 };
 
+const langs = [ "en", "ru" ];
+
 const defaultConfig = {
     env: process.env.ENV || __.ENV.DEV,
     app: {
@@ -19,7 +21,11 @@ const defaultConfig = {
         const projectDir = path.join(portfolioPath, project);
         const files = fs.readdirSync(projectDir);
         const screens = _.filter(files, f => /.png/.test(f));
-        const description = fs.readFileSync(`${projectDir}/info.txt`).toString();
+        const description = {};
+
+        langs.forEach(lang => {
+            description[lang] = fs.readFileSync(`${projectDir}/info.${lang}.txt`).toString();
+        });
 
         return {
             description,

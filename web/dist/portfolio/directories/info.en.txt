@@ -1,0 +1,15 @@
+
+### Directories
+
+Digital platform for reference books, classifiers, collection forms.
+
+The main functionality:
+  - Display of data directories on the map
+  - Document flow
+  - Creation / Editing of directories, forms, classifiers
+
+Technology Stack: Java, React, TypeScript, PostgreSQL
+
+Team: 2 analysts, 3 Front-end developer, 4 Buck-end developer, 1 QA
+
+Position: Tim Lead Front End.
