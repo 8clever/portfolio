@@ -62,10 +62,10 @@ export class Index extends Component {
 				<div className="mb-5" />
 				<div className="text-center">
 					<h1 className="font-weight-bold">
-						OUR SERVICES
+						<I18n string="Our Services" />
 					</h1>
 					<Separator />
-					We can create projects for any platform which you want.
+					<I18n string="We can create projects for any platform which you want." />
 				</div>
 				<div className="mb-5" />
 
@@ -100,14 +100,14 @@ export class Index extends Component {
 					<div className="mb-5" />
 					<div className="text-center">
 						<h1 className="font-weight-bold">
-							OUR SKILLS
+							<I18n string="Our Skills" />
 						</h1>
 						<Separator />
-						Some skills which we already use in projects.
+						<I18n string="Some features which we already use in projects." />
 						<br />
-						We learn new technology each day.
+						<I18n string="We learn new technology each day." />
 						<br />
-						We belive that we can cover all your needs in projects.
+						<I18n string="We belive that we can cover all your needs in projects." />
 					</div>
 
 					<div className="mb-5" />
@@ -144,11 +144,11 @@ export class Index extends Component {
 				<div className="mb-5" />
 				<div className="text-center">
 					<h1 className="font-weight-bold">
-						PORTFOLIO
+						<I18n string="Portfolio" />
 					</h1>
 					<Separator />
-					Projects which we writed or maintained.
-                </div>
+					<I18n string="Projects which we writed or maintained." />
+					</div>
 				<div className="mb-5" />
 
 				<Row noGutters>
@@ -211,7 +211,7 @@ export class Index extends Component {
 					<div className="mb-5"></div>
 					<div className="text-center">
 						<h1 className="font-weight-bold">
-							About Us
+							<I18n string="About Us" />
 						</h1>
 						<Separator />
 					</div>
@@ -222,21 +222,21 @@ export class Index extends Component {
 							<FeatureCard
 								color="white"
 								icon="clock"
-								title="Total Working Hours"
+								title={<I18n string="Total Working Hours" />}
 								description="10000+"
 							/>
 						</Col>
 						<Col md={6} className="px-4">
-							<b>Full Name</b>: Ivan Vityaev
+							<b><I18n string="Full Name" /></b>: <I18n string="Ivan Vityaev" />
 							<br />
 
 							<b>e-mail</b>: godofluck89@gmail.com
 							<br />
 
-							<b>phone</b>: 8 (958) 500-56-02
+							<b><I18n string="phone" /></b>: 8 (958) 500-56-02
 							<br />
 
-							<b>Source Code</b>: <a href="https://github.com/8clever/portfolio">
+							<b><I18n string="Source Code" /></b>: <a href="https://github.com/8clever/portfolio">
 								https://github.com/8clever/portfolio
 							</a>
 							<br />

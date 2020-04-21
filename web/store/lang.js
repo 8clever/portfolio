@@ -34,7 +34,7 @@ export const I18n = observer((props) => {
   }
   
   if (langStore.lang !== "en") {
-    console.warn("Translate not found: " + props.string, langStore.lang);
+    console.warn("Translate not found: " + props.string);
   }
 
   return props.string;

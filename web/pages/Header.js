@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { SpyScroll } from "../utils";
 import { observer } from "mobx-react-lite";
-import { langStore } from "../store/lang";
+import { langStore, I18n } from "../store/lang";
 
 export const Header = observer(() => {
 	const [ collapsed, setCollapsed ] = React.useState(true);
@@ -133,7 +133,7 @@ function SpyButton({ id, name, active, className }) {
 					}}
 					color="info"
 					outline={!active}>
-					{name}
+					<I18n string={name} />
 				</Button>
 			</ReactNavLink>
 		</NavItem>
