@@ -63,3 +63,4 @@ typings/
 web/dist/web.js
 web/dist/server.js
 web/dist/style.css
+web/dist/main.js

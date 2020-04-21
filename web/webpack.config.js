@@ -30,7 +30,7 @@ const jsxLoader = {
     ]
 };
 
-let config = {
+const config = {
     context: __dirname,
     mode: args.options.dev ? __.ENV.DEV : __.ENV.PRODUCTION,
     module: {
@@ -53,26 +53,27 @@ let config = {
             _: "lodash",
             PropTypes: "prop-types"
         })
+        
     ]
 };
 
-let server = _.merge({}, config, {
+const server = {
+    ...config,
     target: "node",
     entry: {
         server: "./pages/Server"
     },
     output: {
+        ...config.output,
         libraryTarget: "commonjs2"
     }
-});
+};
 
-let web = _.merge({}, config, {
+const web = {
+    ...config,
     entry: [
         "./pages/Web"
-    ],
-    output: {
-        filename: "web.js"
-    }
-});
+    ]
+};
 
 module.exports = [ web, server ];

@@ -16,11 +16,11 @@ import {
 	Video
 } from "../components";
 import MD from "react-markdown";
+import { I18n } from "../store/lang";
 
 export class Index extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
 	}
 
 	static async init() {
@@ -49,9 +49,9 @@ export class Index extends Component {
 					<div className="absolute d-flex">
 						<div className={"text-center mx-auto my-auto p-5 border text-white"}>
 							<div className="display-4 font-weight-bold">
-								PURE DEVELOPMENT
+								<I18n string="PURE DEVELOPMENT" />
 							</div>
-							We create fast, stable, modern technology projects.
+							<I18n string="We create fast, stable, modern technology projects." />
 						</div>
 					</div>
 				</Video>
