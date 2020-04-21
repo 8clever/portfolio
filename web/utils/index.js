@@ -3,6 +3,7 @@ export * from "./Lightbox";
 export * from "./SpyScroll";
 
 import { validateInput } from "./validateInput";
+import React from "react";
 
 export class Component extends React.Component {
     constructor (props) {

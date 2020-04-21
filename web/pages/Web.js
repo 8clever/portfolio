@@ -1,7 +1,9 @@
+import React from "react";
 import { Entry } from "./Entry";
 import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <BrowserRouter>
         <Entry />
     </BrowserRouter>, 

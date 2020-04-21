@@ -12,11 +12,10 @@
 		"ecmaVersion": 2017,
 		"sourceType": "module"
 	},
-	"ecmaFeatures": {
-		"modules": true,
-		"spread" : true,
-		"restParams" : true,
-		"jsx": true
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	},
 	"globals": {
 		"emit": true,
@@ -41,9 +40,12 @@
 		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"react/no-find-dom-node": "off",
-		"babel/semi": 1
+		"babel/semi": 1,
+		"react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
 	},
 	"plugins": [
-		"babel"
+		"babel",
+		"react-hooks"
 	]
 }

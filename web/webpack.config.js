@@ -48,8 +48,6 @@ const config = {
             "CFG": JSON.stringify(pubConfig)
         }),
         new webpack.ProvidePlugin({
-            React: "react",
-            ReactDOM: "react-dom",
             _: "lodash",
             PropTypes: "prop-types"
         })
@@ -59,6 +57,7 @@ const config = {
 
 const server = {
     ...config,
+    externals: [ "react", "react-dom" ],
     target: "node",
     entry: {
         server: "./pages/Server"

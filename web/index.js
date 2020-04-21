@@ -60,16 +60,21 @@ module.exports.init = async function () {
 	// react end point
 	Router.get("*", (req, res, next) => {
 		// pass options here
-		let context = {};
+		const context = {};
+		const component = ReactDOM.renderToString(Factory({
+			req,
+			context
+		}))
+
 		if (context.url) {
 			res.redirect(301, context.url);
 			return;
 		}
-
-		let __html = indexHTML
+		
+		const __html = indexHTML
 			.replace(/<% prefix %>/gmi, "")
 			.replace(/<% hash %>/gmi, hash)
-			.replace(/<div id="root"><\/div>/, `<div id="root"></div>`);
+			.replace(/<div id="root"><\/div>/, `<div id="root">${component}</div>`);
 
 		res.send(__html);
 	});

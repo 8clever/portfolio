@@ -1,29 +1,29 @@
+import React from "react";
 import {
 	Nav,
 	Navbar,
 	Collapse,
 	NavItem,
 	NavLink as ReactNavLink,
-	Button,
+	Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { SpyScroll } from "../utils";
 import { observer } from "mobx-react-lite";
-import { langStore } from "../store/lang"
+import { langStore } from "../store/lang";
 
-export const Header = () => {
+export const Header = observer(() => {
 	const [ collapsed, setCollapsed ] = React.useState(true);
-	const [ spy, setSpy ] = React.useState("home")
+	const [ spy, setSpy ] = React.useState("home");
 	const [ bgWhite, setBgWhite ] = React.useState(false);
 
 	const toggleNavbar = () => setCollapsed(!collapsed);
 
 	const onscroll = () => {
 		const spyPos = SpyScroll.getCurrentPosition();
-
 		setSpy(spyPos);
 		setBgWhite(spyPos !== "home");
-	}
+	};
 
 	React.useEffect(() => {
 		window.onscroll = onscroll;
@@ -108,11 +108,11 @@ export const Header = () => {
 			</div>
 		</Navbar>
 	);
-}
+});
 
 const LangView = observer(() => {
 	return <span>{langStore.langsMap[langStore.lang]}</span>;
-})
+});
 
 function NavbarToggler({ onClick }) {
 	return (
