@@ -188,6 +188,7 @@ export class Index extends Component {
 																	style={{
 																		boxShadow: "0 0 10px rgba(0,0,0,0.1)"
 																	}}
+																	alt={src}
 																	mediabox={project.name}
 																	className="mx-auto mb-4"
 																	src={src}
@@ -244,14 +245,20 @@ export class Index extends Component {
 							</a>
 							<br />
 
-							<a href="https://vk.com/ivanvityaev">
-								<i className="fab fa-vk fa-2x text-white" />
-							</a>
+							<i 
+								onClick={() => {
+									window.open("https://vk.com/ivanvityaev", "_blank");
+								}} 
+								className="fab fa-vk fa-2x text-white" 
+							/>
 							{" "}
 
-							<a href="https://www.facebook.com/indigo.extreem">
-								<i className="fab fa-facebook fa-2x text-white" />
-							</a>
+							<i 
+								onClick={() => {
+									window.open("https://www.facebook.com/indigo.extreem", "_blank")
+								}}
+								className="fab fa-facebook fa-2x text-white" 
+							/>
 						</Col>
 					</Row>
 					<div className="mb-5"></div>

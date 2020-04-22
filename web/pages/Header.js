@@ -40,7 +40,7 @@ export const Header = observer(() => {
 			className={bgWhite ? "bg-white" : ""}>
 			<div className="container">
 				<NavbarBrand to={"/"}>
-					<img height="43px" src="/logo.png" />
+					<img alt='8clever' height="43px" src="/logo.png" />
 					&nbsp;
 					<strong className="text-info h2 font-weight-bold">
 						VIP - Software
