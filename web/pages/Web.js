@@ -14,6 +14,6 @@ if (module.hot) {
     module.hot.accept();
 }
 
-if ('serviceWorker' in navigator) {
+if (CFG.env === "production" && 'serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
 }

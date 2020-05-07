@@ -39,6 +39,7 @@ module.exports = {
     __,
     cfg: _.cloneDeep(defaultConfig),
     pubConfig: _.pick(defaultConfig, [
-        "projects"
+        "projects",
+        "env"
     ])
 };
