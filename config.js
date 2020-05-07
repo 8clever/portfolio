@@ -30,7 +30,7 @@ const defaultConfig = {
         return {
             description,
             name: project,
-            screens: _.map(screens, s => `portfolio/${project}/${s}`)
+            screens: _.map(screens, s => `${project}/${s}`)
         };
     })
 };

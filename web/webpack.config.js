@@ -30,12 +30,37 @@ const jsxLoader = {
     ]
 };
 
+const imageLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+        "file-loader",
+        {
+            loader: 'image-webpack-loader',
+            options: {
+                outputPath: "images",
+                bypassOnDebug: true, // webpack@1.x
+                disable: true, // webpack@2.x and newer
+            },
+        }
+    ]
+}
+
+const textLoader = {
+    test: /\.txt$/i,
+    loader: 'file-loader',
+    options: {
+        outputPath: 'text'
+    }
+}
+
 const config = {
     context: __dirname,
     mode: args.options.dev ? __.ENV.DEV : __.ENV.PRODUCTION,
     module: {
         rules: [
-            jsxLoader
+            jsxLoader,
+            imageLoader,
+            textLoader
         ]
     },
     output: {

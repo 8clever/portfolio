@@ -47,7 +47,7 @@ export class Index extends Component {
 					ratio={"32.6%"}
 					className="d-none d-sm-none d-md-block"
 					videoUrl={"/coding_man.mp4"}
-					posterUrl={"/coding_man.jpg"}>
+					posterUrl={require("../dist/coding_man.jpg").default}>
 					<div className="absolute d-flex">
 						<div className={"text-center mx-auto my-auto p-5 border text-white"}>
 							<div className="display-4 font-weight-bold">
@@ -97,7 +97,7 @@ export class Index extends Component {
 				<div className="mb-5" />
 
 				<SpyScroll id="our-skills" offsetY="-70" />
-				<Section img="/bg1.jpg">
+				<Section img={require("../dist/bg1.jpg").default}>
 					<div className="mb-5" />
 					<div className="text-center">
 						<h1 className="font-weight-bold">
@@ -191,7 +191,7 @@ export class Index extends Component {
 																	alt={src}
 																	mediabox={project.name}
 																	className="mx-auto mb-4"
-																	src={src}
+																	src={require("../dist/portfolio/" + src).default}
 																	width={200}
 																	height={200}
 																/>
@@ -211,7 +211,7 @@ export class Index extends Component {
 				<div className="mb-5"></div>
 
 				<SpyScroll id="about-us" offset="-70" />
-				<Section img="/bg2.jpg">
+				<Section img={require("../dist/bg2.jpg").default}>
 					<div className="mb-5"></div>
 					<div className="text-center">
 						<h1 className="font-weight-bold">
