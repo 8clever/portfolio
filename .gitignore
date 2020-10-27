@@ -68,5 +68,6 @@ web/dist/main*.js
 web/dist/vendors*.js
 web/dist/images
 web/dist/text
+web/dist/fonts
 workbox**
 service-worker**
