@@ -20,7 +20,12 @@ const defaultConfig = {
     projects: _.map(fs.readdirSync(portfolioPath), project => {
         const projectDir = path.join(portfolioPath, project);
         const files = fs.readdirSync(projectDir);
-        const screens = _.filter(files, f => /.png/.test(f));
+        const screens = _.filter(files, f => {
+            return (
+                /.png/.test(f) ||
+                /.jpg/.test(f)
+            )
+        });
         const description = {};
 
         langs.forEach(lang => {

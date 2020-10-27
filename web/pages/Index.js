@@ -155,56 +155,58 @@ export class Index extends Component {
 				<Row noGutters>
 					<Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 9 }}>
 						{
-							_.map(CFG.projects, (project, idx) => (
-								<div key={idx}>
-									<legend className="text-uppercase text-center cursor-pointer" onClick={this.toggle(project.name)}>
-										{project.name}
-										{" "}
-										{
-											this.state[project.name] ?
-											<i className="fa fa-minus text-info" /> :
-											<i className="fa fa-plus text-info" />
-										}
-									</legend>
+							_.map(CFG.projects, (project, idx) => {
+								return (
+									<div key={idx}>
+										<legend className="text-uppercase text-center cursor-pointer" onClick={this.toggle(project.name)}>
+											{project.name}
+											{" "}
+											{
+												this.state[project.name] ?
+												<i className="fa fa-minus text-info" /> :
+												<i className="fa fa-plus text-info" />
+											}
+										</legend>
 
-									<Collapse isOpen={!!this.state[project.name]}>
-										<Separator />
-										<div className="mb-4"></div>
+										<Collapse isOpen={!!this.state[project.name]}>
+											<Separator />
+											<div className="mb-4"></div>
 
-										<Card>
-											<CardBody>
-												<Observer children={() => (
-													<MD
-														source={project.description[langStore.lang]}
-													/>
-												)} />
-											</CardBody>
-											<CardFooter>
-												<Row noGutters className="justify-content-center">
-													{
-														_.map(project.screens, (src, idx) => (
-															<Col md={4} lg={3} sm={6} key={idx}>
-																<Image
-																	style={{
-																		boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-																	}}
-																	alt={src}
-																	mediabox={project.name}
-																	className="mx-auto mb-4"
-																	src={require("../dist/portfolio/" + src).default}
-																	width={200}
-																	height={200}
-																/>
-															</Col>
-														))
-													}
-												</Row>
-											</CardFooter>
-										</Card>
-										
-									</Collapse>
-								</div>
-							))
+											<Card>
+												<CardBody>
+													<Observer children={() => (
+														<MD
+															source={project.description[langStore.lang]}
+														/>
+													)} />
+												</CardBody>
+												<CardFooter>
+													<Row noGutters className="justify-content-center">
+														{
+															_.map(project.screens, (src, idx) => (
+																<Col md={4} lg={3} sm={6} key={idx}>
+																	<Image
+																		style={{
+																			boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+																		}}
+																		alt={src}
+																		mediabox={project.name}
+																		className="mx-auto mb-4"
+																		src={require("../dist/portfolio/" + src).default}
+																		width={200}
+																		height={200}
+																	/>
+																</Col>
+															))
+														}
+													</Row>
+												</CardFooter>
+											</Card>
+											
+										</Collapse>
+									</div>
+								)}
+							)
 						}
 					</Col>
 				</Row>
