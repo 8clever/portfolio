@@ -71,3 +71,5 @@ web/dist/text
 web/dist/fonts
 workbox**
 service-worker**
+manifest**
+icon_**

@@ -5,6 +5,7 @@ const argv = require("argv");
 const { __, pubConfig } = require("../config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 argv.option({
     name: 'dev',
@@ -138,6 +139,23 @@ const web = {
                 description: "VIP Software. Web-development. Ivan Vityaev",
                 charSet: "utf-8"
             }
+        }),
+        new WebpackPwaManifest({
+            "short_name": "VIP Software",
+            "name": "VIP Software",
+            "description": "Web-development, Ivan Vityaev",
+            "icons": [
+                {
+                "src": path.join(__dirname, "/dist/logo.png"),
+                "type": "image/png",
+                "sizes": "192x192"
+                }
+            ],
+            "start_url": "/",
+            "background_color": "#fff",
+            "display": "standalone",
+            "scope": "/",
+            "theme_color": "#fff"
         }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
