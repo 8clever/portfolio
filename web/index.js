@@ -7,8 +7,6 @@ const ReactDOM = require("react-dom/server.node");
 
 module.exports.init = async function () {
 	let Router = express();
-	let { Server } = require("./dist/server.js");
-	let Factory = React.createFactory(Server);
 
 	// dev hot router
 	if (cfg.env === __.ENV.DEV) {
@@ -48,20 +46,7 @@ module.exports.init = async function () {
 
 	// react end point
 	Router.get("*", (req, res, next) => {
-		// pass options here
-		const context = {};
-
-		const html = ReactDOM.renderToString(Factory({
-			req,
-			context
-		}));
-
-		if (context.url) {
-			res.redirect(301, context.url);
-			return;
-		}
-		
-		res.send(html);
+		res.sendFile(path.join(__dirname, "/dist/index.html"));
 	});
 
 	return Router;

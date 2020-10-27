@@ -126,19 +126,6 @@ const config = {
     ]
 };
 
-const server = {
-    ...config,
-    externals: [ "react", "react-dom" ],
-    target: "node",
-    entry: {
-        server: "./pages/Server"
-    },
-    output: {
-        ...config.output,
-        libraryTarget: "commonjs2"
-    }
-};
-
 const web = {
     ...config,
     plugins: [
@@ -162,4 +149,4 @@ const web = {
     ]
 };
 
-module.exports = [ web, server ];
+module.exports = [ web ];
