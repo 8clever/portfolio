@@ -3,6 +3,8 @@ const webpack = require("webpack");
 const _ = require("lodash");
 const argv = require("argv");
 const { __, pubConfig } = require("../config");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 argv.option({
     name: 'dev',
@@ -67,11 +69,28 @@ const imageLoader = {
 }
 
 const textLoader = {
-    test: /\.txt$/i,
+    test: /\.txt$$/i,
     loader: 'file-loader',
     options: {
         outputPath: 'text'
     }
+}
+
+const fontLoader = {
+    test: /\.eot$|\.ttf$|\.woff$|\.woff2$|\.svg$/i,
+    loader: 'file-loader',
+    options: {
+        outputPath: 'fonts'
+    }
+}
+
+const sassLoader = {
+    test: /\.s[ac]ss$/i,
+    use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader',
+    ],
 }
 
 const config = {
@@ -79,15 +98,22 @@ const config = {
     mode: args.options.dev ? __.ENV.DEV : __.ENV.PRODUCTION,
     module: {
         rules: [
+            fontLoader,
+            sassLoader,
             jsxLoader,
             imageLoader,
-            textLoader
+            textLoader,
         ]
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: "/"
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -97,7 +123,6 @@ const config = {
             _: "lodash",
             PropTypes: "prop-types"
         })
-        
     ]
 };
 
@@ -116,6 +141,22 @@ const server = {
 
 const web = {
     ...config,
+    plugins: [
+        ...config.plugins,
+        new HtmlWebpackPlugin({
+            title: "VIP Software",
+            favicon: path.join(__dirname, "/dist/favicon.ico"),
+            meta: {
+                viewport: "width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5",
+                description: "VIP Software. Web-development. Ivan Vityaev",
+                charSet: "utf-8"
+            }
+        }),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
+    ],
     entry: [
         "./pages/Web"
     ]

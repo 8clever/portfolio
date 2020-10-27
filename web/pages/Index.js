@@ -20,6 +20,9 @@ import MD from "react-markdown";
 import { I18n, langStore } from "../store/lang";
 import { Observer } from "mobx-react-lite";
 
+// styles
+import "../style/style.scss";
+
 export class Index extends Component {
 	constructor(props) {
 		super(props);

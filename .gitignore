@@ -60,9 +60,13 @@ typings/
 # next.js build output
 .next
 
-web/dist/web.js
-web/dist/server.js
-web/dist/style.css
-web/dist/main.js
+web/dist/index.html
+web/dist/web*.js
+web/dist/server*.js
+web/dist/style*.css
+web/dist/main*.js
+web/dist/vendors*.js
 web/dist/images
 web/dist/text
+workbox**
+service-worker**

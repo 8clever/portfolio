@@ -1,17 +1,12 @@
 const express = require("express");
 const path = require("path");
-const sassMiddleware = require("node-sass-middleware");
 const distPath = path.join(__dirname, "./dist");
 const React = require("react");
-const ReactDOM = require("react-dom/server");
-const fs = require("fs");
 const { cfg, __ } = require("../config");
-
-const hash = new Date().valueOf();
+const ReactDOM = require("react-dom/server.node");
 
 module.exports.init = async function () {
 	let Router = express();
-	let indexHTML = fs.readFileSync(__dirname + "/dist/factory.html").toString();
 	let { Server } = require("./dist/server.js");
 	let Factory = React.createFactory(Server);
 
@@ -45,15 +40,9 @@ module.exports.init = async function () {
 		}));
 	}
 
-	// sass
-	Router.use(sassMiddleware({
-		src: path.join(__dirname, "./style"),
-		dest: distPath,
-		outputStyle: 'compressed'
-	}));
-
 	// static
 	Router.use(express.static(distPath, {
+		index: false,
 		maxAge: "30d"
 	}));
 
@@ -61,22 +50,18 @@ module.exports.init = async function () {
 	Router.get("*", (req, res, next) => {
 		// pass options here
 		const context = {};
-		const component = ReactDOM.renderToString(Factory({
+
+		const html = ReactDOM.renderToString(Factory({
 			req,
 			context
-		}))
+		}));
 
 		if (context.url) {
 			res.redirect(301, context.url);
 			return;
 		}
 		
-		const __html = indexHTML
-			.replace(/<% prefix %>/gmi, "")
-			.replace(/<% hash %>/gmi, hash)
-			.replace(/<div id="root"><\/div>/, `<div id="root">${component}</div>`);
-
-		res.send(__html);
+		res.send(html);
 	});
 
 	return Router;
