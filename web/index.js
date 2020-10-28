@@ -1,9 +1,8 @@
 const express = require("express");
 const path = require("path");
 const distPath = path.join(__dirname, "./dist");
-const React = require("react");
 const { cfg, __ } = require("../config");
-const ReactDOM = require("react-dom/server.node");
+const compression = require("compression");
 
 module.exports.init = async function () {
 	let Router = express();
@@ -38,10 +37,14 @@ module.exports.init = async function () {
 		}));
 	}
 
+	Router.use(compression({
+		level: 9
+	}));
+
 	// static
 	Router.use(express.static(distPath, {
 		index: false,
-		maxAge: "30d"
+		maxAge: "366d"
 	}));
 
 	// react end point
