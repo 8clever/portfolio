@@ -137,7 +137,8 @@ const web = {
             meta: {
                 viewport: "width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5",
                 description: "VIP Software. Web-development. Ivan Vityaev",
-                charSet: "utf-8"
+                charSet: "utf-8",
+                "yandex-verification": "2f0734bcc1260adb"
             }
         }),
         new WebpackPwaManifest({
