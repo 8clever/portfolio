@@ -5,8 +5,7 @@ const argv = require("argv");
 const { __, pubConfig } = require("../config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const CompressionPlugin = require('compression-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 argv.option({
     name: 'dev',
@@ -162,8 +161,7 @@ const web = {
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true
-        }),
-        new CompressionPlugin()
+        })
     ],
     entry: [
         "./pages/Web"

@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const distPath = path.join(__dirname, "./dist");
 const { cfg, __ } = require("../config");
+const compression = require("compression");
 
 module.exports.init = async function () {
 	let Router = express();
@@ -35,6 +36,10 @@ module.exports.init = async function () {
 			log: console.log, path: `/__webpack_hmr`, heartbeat: 10 * 1000
 		}));
 	}
+
+	Router.use(compression({
+		level: 9
+	}));
 
 	// static
 	Router.use(express.static(distPath, {
