@@ -13,6 +13,7 @@ export class Video extends React.Component {
 	};
 
 	render() {
+		
 		return (
 			<div 
 				className={"video-header " + this.props.className} 
@@ -27,7 +28,11 @@ export class Video extends React.Component {
 					autoPlay
 					muted
 					loop>
-					<source src={this.props.videoUrl} type="video/mp4" />
+					{
+						window.innerWidth > 767 ?
+						<source src={this.props.videoUrl} type="video/mp4" /> :
+						null
+					}
 				</video>
 
 				{this.props.children}
