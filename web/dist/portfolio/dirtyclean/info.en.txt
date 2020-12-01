@@ -6,7 +6,7 @@ Logic Match2 puzzle game where the player has to learn all the delights of gener
 
 Explore different branches of improvements. Reveal all the chains of character interactions. Complete all missions and levels. Learn Zen in dirty cleaning. May the broom be with you!
 
-You can download game by [link](https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US)
+You can download game by [link](/dirtyclean)
 
 Technology Stack: Unity3d, C#
 
