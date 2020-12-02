@@ -11,7 +11,7 @@ export const DirtyClean = () => {
       display: "flex",
       flexDirection: "column",
       placeContent: "center",
-      alignContent: "center"
+      alignItems: "center"
     }}>
       <div style={{
         background: `url("${mobile}") content-box center / cover no-repeat`,
