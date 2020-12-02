@@ -1,63 +1,60 @@
 {
-  "name": "vip-software",
-  "version": "0.0.1",
+  "name": "portfolio",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.5.0",
-    "argv": "0.0.2",
-    "bootstrap-scss": "^4.1.3",
-    "compression": "^1.7.4",
-    "express": "^4.13.3",
-    "lodash": "^4.17.11",
-    "mobx": "^5.15.4",
-    "mobx-react-lite": "^2.0.6",
-    "moment": "^2.10.6",
-    "node-sass-middleware": "^0.11.0",
-    "querystring-es3": "^0.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-image-resizer": "^1.3.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.3.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.19.8",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
+    "lodash": "^4.17.20",
+    "mobx": "^6.0.4",
+    "mobx-react-lite": "^3.1.6",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-markdown": "^4.3.1",
-    "react-router-dom": "^5.1.2",
-    "reactstrap": "^8.4.1",
-    "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "reactstrap": "^8.7.1",
+    "serve": "^11.3.2",
+    "typescript": "^4.1.2",
+    "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git",
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "start-dev": "npm run webpack && node server",
-    "webpack": "cd web && npx webpack --progress --dev",
-    "build": "cd web && npx webpack --progress"
+    "start": "serve -s build",
+    "start:dev": "npm run def & react-scripts start",
+    "build": "npm run def & react-scripts build",
+    "def": "node bin/makeDictionary"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-decorators": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.1.5",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "css-loader": "^5.0.0",
-    "eslint": "^5.9.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.5.0",
-    "i18n-webpack-plugin": "^1.0.0",
-    "image-webpack-loader": "^6.0.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.4",
-    "style-loader": "^2.0.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-middleware": "^3.4.0",
-    "webpack-hot-middleware": "^2.24.3",
-    "webpack-pwa-manifest": "^4.2.0",
-    "workbox-webpack-plugin": "^5.1.4"
-  },
-  "engines": {
-    "node": "11.5.0"
+    "@types/lodash": "^4.14.165",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/reactstrap": "^8.7.2",
+    "bootstrap-scss": "^4.5.3",
+    "node-sass": "^4.14.1"
   }
 }

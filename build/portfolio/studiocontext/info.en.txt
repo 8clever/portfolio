@@ -1,0 +1,12 @@
+
+### Studio Context
+
+https://studiocontext.ru/
+
+Ballet School named after Diana Vishneva
+
+Technology Stack: NodeJS, TypeScript, MongoDB, React
+
+Team: 1 Full-stack developer, 1 QA
+
+Position: Full Stack

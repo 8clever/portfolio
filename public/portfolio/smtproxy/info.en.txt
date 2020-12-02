@@ -1,0 +1,10 @@
+
+### smtproxy
+
+https://smtproxy.com
+
+Implemented under the PushOK brand.
+
+Very small off-project.
+Aggregation of emails.
+Well, or one input project =).

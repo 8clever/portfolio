@@ -1,0 +1,16 @@
+### Super Gas Bras
+
+The project is implemented under the brand Pvinova.
+
+The main objective of the project is to optimize the time of gas filling stations.
+
+Customers can indicate the time for which they want to arrive and the number of cylinders p13 for refueling.
+Each gas station has its own settings.
+The site maintains statistics on refilled cylinders, refueling times, and deviations from the norm.
+For the main screen at the gas station, there is an air panel so that customers are aware of the current state of the gas station.
+
+Technology Stack: Nodejs, Backbone, RequireJS, JQuery, MongoDB
+
+Team: 2 Full-stack developer, 1 QA
+
+Position: Tim Lead

@@ -1,0 +1,11 @@
+### Studio Context
+
+https://studiocontext.ru/
+
+Школа балета имени Дианы Вишневой
+
+Cтек технологий: NodeJS, TypeScript, MongoDB, React
+
+Команда: 1 Фулл-стек разработчик, 1 QA
+
+Должность: Фулл-стек
