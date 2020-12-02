@@ -54,7 +54,7 @@ export const DirtyClean = () => {
         <div style={{
           margin: "2.4vh",
           borderRadius: "0 0 2rem 2rem",
-          padding: "2rem 1rev 3rem 3rem",
+          padding: "1rem",
           background: "rgba(0,0,0,0.5)",
         }}>
           <div style={{ 
