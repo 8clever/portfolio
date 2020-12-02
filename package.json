@@ -11,6 +11,8 @@
     "@types/node": "^12.19.8",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
     "lodash": "^4.17.20",
     "mobx": "^6.0.4",
     "mobx-react-lite": "^3.1.6",
@@ -21,13 +23,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.7.1",
-    "serve": "^11.3.2",
     "typescript": "^4.1.2",
     "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "node server",
     "start:dev": "npm run def & react-scripts start",
     "build": "npm run def & react-scripts build",
     "def": "node bin/makeDictionary"
