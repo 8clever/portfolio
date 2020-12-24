@@ -115,11 +115,7 @@ export class Index extends Component<IProps, IState> {
 							<I18n string="Our Skills" />
 						</h1>
 						<Separator />
-						<I18n string="Some features which we already use in projects." />
-						<br />
-						<I18n string="We learn new technology each day." />
-						<br />
-						<I18n string="We belive that we can cover all your needs in projects." />
+						<I18n string="Features which we already use in projects." />
 					</div>
 
 					<div className="mb-5" />
@@ -128,25 +124,18 @@ export class Index extends Component<IProps, IState> {
 							<DotPoint /> Nodejs &nbsp;
 							<DotPoint /> TypeScript &nbsp;
 							<DotPoint /> C# &nbsp;
-							<DotPoint /> PHP &nbsp;
-							<DotPoint /> GoLang
 						</h4>
 						<h4 className="text-center">
 							<DotPoint /> MongoDB &nbsp;
 							<DotPoint /> MySQL &nbsp;
-							<DotPoint /> MsSQL &nbsp;
 							<DotPoint /> PouchDB &nbsp;
 							<DotPoint /> CouchDB &nbsp;
 						</h4>
 						<h4 className="text-center">
 							<DotPoint /> React &nbsp;
-							<DotPoint /> Angular &nbsp;
-							<DotPoint /> Backbone &nbsp;
-							<DotPoint /> Phonegap &nbsp;
-							<DotPoint /> Electron &nbsp;
-							<DotPoint /> JQuery &nbsp;
-							<DotPoint /> RequireJS &nbsp;
 							<DotPoint /> Webpack &nbsp;
+							<DotPoint /> MobX &nbsp;
+							<DotPoint /> Unity3D &nbsp;
 						</h4>
 					</div>
 					<div className="mb-5" />
