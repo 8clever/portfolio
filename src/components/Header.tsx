@@ -17,14 +17,12 @@ const size = "lg";
 export const Header = observer(() => {
 	const [ collapsed, setCollapsed ] = React.useState(true);
 	const [ spy, setSpy ] = React.useState("home");
-	const [ bgWhite, setBgWhite ] = React.useState(false);
 
 	const toggleNavbar = () => setCollapsed(!collapsed);
 
 	const onscroll = () => {
 		const spyPos = SpyScroll.getCurrentPosition();
 		setSpy(spyPos);
-		setBgWhite(spyPos !== "home");
 	};
 
 	React.useEffect(() => {
@@ -35,11 +33,10 @@ export const Header = observer(() => {
 	return (
 		<Navbar
 			style={{
+				background: "#1d1d1d",
 				transition: "all 0.5s ease-out"
-			}}
-			expand={size}
-			fixed={"top"}
-			className={bgWhite ? "bg-white" : ""}>
+			}} 
+			expand={size}>
 			<div className="container">
 				<NavbarBrand to={"/"}>
 					<img alt='8clever' height="43px" src="/favicon.ico" />
@@ -51,12 +48,6 @@ export const Header = observer(() => {
 				<NavbarToggler onClick={toggleNavbar} />
 				<Collapse isOpen={!collapsed} navbar>
 					<Nav navbar className="ml-auto">
-						<SpyButton
-							className={`d-none d-${size}-block`}
-							id="home"
-							name="Home"
-							active={spy === "home"}
-						/>
 						<SpyButton
 							id="our-services"
 							name="Our Services"

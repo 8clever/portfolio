@@ -54,14 +54,13 @@ export class Index extends Component<IProps, IState> {
 	render() {
 		return (
 			<div>
-				<SpyScroll id="home" />
+				<SpyScroll id="home" offsetY={0} />
 				<Video
-					ratio={"32.6%"}
 					className="d-none d-sm-none d-md-block"
 					videoUrl={video}
 					posterUrl={splash}>
 					<div className="absolute d-flex">
-						<div className={"text-center mx-auto my-auto p-5 border text-white"}>
+						<div className={"text-center m-auto p-5 border text-white"}>
 							<div className="display-4 font-weight-bold">
 								<I18n string="PURE DEVELOPMENT" />
 							</div>
@@ -70,7 +69,7 @@ export class Index extends Component<IProps, IState> {
 					</div>
 				</Video>
 
-				<SpyScroll id="our-services" data-offsetY="-70" />
+				<SpyScroll id="our-services" offsetY={0} />
 				<div className="d-md-none d-lg-none mb-5">&nbsp;</div>
 				<div className="mb-5" />
 				<div className="text-center">
@@ -108,7 +107,7 @@ export class Index extends Component<IProps, IState> {
 				</Row>
 				<div className="mb-5" />
 
-				<SpyScroll id="our-skills" offsetY="-70" />
+				<SpyScroll id="our-skills" offsetY={0} />
 				<Section img={bg1}>
 					<div className="mb-5" />
 					<div className="text-center">
@@ -153,7 +152,7 @@ export class Index extends Component<IProps, IState> {
 					<div className="mb-5" />
 				</Section>
 
-				<SpyScroll id="portfolio" offsetY="-70" />
+				<SpyScroll id="portfolio" offsetY={0} />
 				<div className="mb-5" />
 				<div className="text-center">
 					<h1 className="font-weight-bold">
@@ -229,7 +228,7 @@ export class Index extends Component<IProps, IState> {
 				</Row>
 				<div className="mb-5"></div>
 
-				<SpyScroll id="about-us" offsetY="-70" />
+				<SpyScroll id="about-us" offsetY={0} />
 				<Section img={bg2}>
 					<div className="mb-5"></div>
 					<div className="text-center">

@@ -3,7 +3,7 @@ import _ from "lodash";
 
 interface IProps {
     id: string;
-    offsetY?: number | string;
+    offsetY: number;
 }
 
 export class SpyScroll extends React.Component<IProps> {
