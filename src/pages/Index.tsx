@@ -168,6 +168,8 @@ export class Index extends Component<IProps, IState> {
 					<Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 9 }}>
 						{
 							_.map(porfolioDictonary, (project, idx) => {
+								const isOpen = !!this.state[project.name];
+
 								return (
 									<div key={idx}>
 										<legend className="text-uppercase text-center cursor-pointer" onClick={this.toggle(project.name)}>
@@ -180,7 +182,7 @@ export class Index extends Component<IProps, IState> {
 											}
 										</legend>
 
-										<Collapse isOpen={!!this.state[project.name]}>
+										<Collapse isOpen={isOpen}>
 											<Separator />
 											<div className="mb-4"></div>
 
@@ -196,18 +198,21 @@ export class Index extends Component<IProps, IState> {
 													<Row noGutters className="justify-content-center">
 														{
 															_.map(project.screens, (src, idx) => (
-																<Col md={4} lg={3} sm={6} key={idx}>
-																	<Image
-																		style={{
-																			boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-																		}}
-																		alt={src}
-																		mediabox={project.name}
-																		className="mx-auto mb-4"
-																		src={"/portfolio/" + src}
-																		width={200}
-																		height={200}
-																	/>
+																<Col key={idx}>
+																	{
+																		isOpen ?
+																		<Image
+																			style={{
+																				boxShadow: "0 0 10px rgba(0,0,0,0.1)"
+																			}}
+																			alt={src}
+																			mediabox={project.name}
+																			className="mx-auto mb-4"
+																			src={"/portfolio/" + src}
+																			width={200}
+																			height={200}
+																		/> : null
+																	}
 																</Col>
 															))
 														}

@@ -23,6 +23,7 @@ export class Video extends React.Component<IProps> {
 					paddingTop: this.props.ratio
 				}}>
 				<video
+					preload="none"
 					className="absolute"
 					poster={this.props.posterUrl}
 					playsInline

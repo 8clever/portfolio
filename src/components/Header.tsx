@@ -12,6 +12,8 @@ import { SpyScroll } from "../utils";
 import { observer } from "mobx-react-lite";
 import { langStore, I18n, Lang } from "../store/lang";
 
+const size = "lg";
+
 export const Header = observer(() => {
 	const [ collapsed, setCollapsed ] = React.useState(true);
 	const [ spy, setSpy ] = React.useState("home");
@@ -35,7 +37,7 @@ export const Header = observer(() => {
 			style={{
 				transition: "all 0.5s ease-out"
 			}}
-			expand={"md"}
+			expand={size}
 			fixed={"top"}
 			className={bgWhite ? "bg-white" : ""}>
 			<div className="container">
@@ -50,7 +52,7 @@ export const Header = observer(() => {
 				<Collapse isOpen={!collapsed} navbar>
 					<Nav navbar className="ml-auto">
 						<SpyButton
-							className="d-none d-sm-none d-md-block"
+							className={`d-none d-${size}-block`}
 							id="home"
 							name="Home"
 							active={spy === "home"}
@@ -78,12 +80,13 @@ export const Header = observer(() => {
 						<NavItem>
 							<ReactNavLink href="https://github.com/8clever/">
 								<Button
+									style={{
+										whiteSpace: "nowrap"
+									}}
 									className="border-radius-20"
 									outline
 									color="info">
-									<i className="fab fa-github" />
-									{" "}
-									GitHub
+									<i className="fab fa-github"/> GitHub
 								</Button>
 							</ReactNavLink>
 						</NavItem>
@@ -120,7 +123,7 @@ interface NavbarTogglerProps {
 
 function NavbarToggler({ onClick }: NavbarTogglerProps) {
 	return (
-		<div onClick={onClick} className="cursor-pointer d-md-none">
+		<div onClick={onClick} className={`cursor-pointer d-${size}-none`}>
 			<i className="fa fa-2x fa-bars text-info"></i>
 		</div>
 	);
@@ -138,6 +141,9 @@ function SpyButton({ id, name, active, className }: SpyButtonProps) {
 		<NavItem>
 			<ReactNavLink >
 				<Button
+					style={{
+						whiteSpace: "nowrap"
+					}}
 					className={"border-radius-20 " + className}
 					onClick={() => {
 						SpyScroll.goTo(id);
