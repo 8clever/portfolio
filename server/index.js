@@ -5,6 +5,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 (async () => {
+    // google can't read sitemap.xml directly
+    app.get("/sitemap.xml", (req, res, next) => {
+      res.sendFile(path.join(__dirname, "../public/sitemap.xml"), {
+        headers: {
+          "Content-Type": "text/xml; charset=UTF-8"
+        }
+      });
+    });
 
     app.use(compression({
       level: 9
