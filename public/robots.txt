@@ -1,5 +1,5 @@
 User-agent: Googlebot
 Disallow: /nogooglebot/
-
+Sitemap: https://vip-software.herokuapp.com/sitemap.xml
 User-agent: *
 Allow: /
