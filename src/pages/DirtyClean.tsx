@@ -8,28 +8,24 @@ const Buttons = (props: {
 }) => {
   return (
     <>
-      <a 
-        style={{
-          marginRight: "1.5vh"
-        }}
-        href="https://apps.apple.com/ru/app/dirty-clean/id1541008540">
-        <Button 
-          block={props.block}
-          size="lg"
-          color="info">
-          <i className="fab fa-apple mr-2" />
-          iOS
-        </Button>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US">
-        <Button 
-          block={props.block}
-          size="lg"
-          color="info">
-          <i className="fab fa-android mr-2" />
-          Android
-        </Button>
-      </a>
+      <Button 
+        className="mr-2 mb-2"
+        href="https://apps.apple.com/ru/app/dirty-clean/id1541008540"
+        block={props.block}
+        size="lg"
+        color="info">
+        <i className="fab fa-apple mr-2" />
+        iOS
+      </Button>
+      <Button 
+        className="mr-2 mb-2"
+        href="https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US"
+        block={props.block}
+        size="lg"
+        color="info">
+        <i className="fab fa-android mr-2" />
+        Android
+      </Button>
     </>
   )
 }
@@ -88,8 +84,7 @@ export const DirtyClean = () => {
       </Col>
       <Col
         style={{
-          background: "#212121",
-          height: "100vh"
+          background: "#212121"
         }}
         className="d-flex" 
         sm={12}
