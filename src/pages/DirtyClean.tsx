@@ -56,9 +56,11 @@ export const DirtyClean = () => {
         },
         "applicationCategory" : "puzzle",
         "downloadUrl" : [ "https://apps.apple.com/ru/app/dirty-clean/id1541008540", "https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US" ],
+        "operatingSystem" : "iOS, Android",
         "aggregateRating" : {
           "@type" : "AggregateRating",
-          "ratingValue" : "5"
+          "ratingValue" : "5",
+          "ratingCount" : "1"
         }
       }
     `
