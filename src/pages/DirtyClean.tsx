@@ -48,7 +48,7 @@ export const DirtyClean = () => {
         }}>
         <img 
           style={{
-            height: "95vh"
+            maxHeight: "95vh"
           }}
           className='img-fluid m-auto'
           alt="Dirty Clean"
