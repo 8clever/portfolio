@@ -3,33 +3,6 @@ import bg from "../images/back2-min.jpg";
 import React from "react";
 import mobile from "../images/mobile-dirtyclean.png";
 
-const Buttons = (props: {
-  block?: boolean;
-}) => {
-  return (
-    <>
-      <Button 
-        className="mr-2 mb-2"
-        href="https://apps.apple.com/ru/app/dirty-clean/id1541008540"
-        block={props.block}
-        size="lg"
-        color="info">
-        <i className="fab fa-apple mr-2" />
-        iOS
-      </Button>
-      <Button 
-        className="mr-2 mb-2"
-        href="https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US"
-        block={props.block}
-        size="lg"
-        color="info">
-        <i className="fab fa-android mr-2" />
-        Android
-      </Button>
-    </>
-  )
-}
-
 export const DirtyClean = () => {
 
   React.useEffect(() => {
@@ -84,6 +57,7 @@ export const DirtyClean = () => {
       </Col>
       <Col
         style={{
+          minHeight: "100vh",
           background: "#212121"
         }}
         className="d-flex" 
@@ -118,7 +92,22 @@ export const DirtyClean = () => {
               borderColor: "whitesmoke"
             }}
           />
-          <Buttons />
+          <Button 
+            className="mr-2 mb-2"
+            href="https://apps.apple.com/ru/app/dirty-clean/id1541008540"
+            size="lg"
+            color="info">
+            <i className="fab fa-apple mr-2" />
+            iOS
+          </Button>
+          <Button 
+            className="mr-2 mb-2"
+            href="https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US"
+            size="lg"
+            color="info">
+            <i className="fab fa-android mr-2" />
+            Android
+          </Button>
         </div>
       </Col>
     </Row>
