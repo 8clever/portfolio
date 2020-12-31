@@ -38,6 +38,31 @@ export const DirtyClean = () => {
 
   React.useEffect(() => {
     document.title = "Dirty Clean";
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = `
+      {
+        "@context" : "http://schema.org",
+        "@type" : "SoftwareApplication",
+        "name" : "Dirty Clean",
+        "image" : "https://puzzle.simple-games.fun/static/media/mobile-dirtyclean.22d1a046.png",
+        "author" : {
+          "@type" : "Person",
+          "name" : "Ivan Vityaev"
+        },
+        "publisher" : {
+          "@type" : "Organization",
+          "name" : "VIP Software"
+        },
+        "applicationCategory" : "puzzle",
+        "downloadUrl" : [ "https://apps.apple.com/ru/app/dirty-clean/id1541008540", "https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US" ],
+        "aggregateRating" : {
+          "@type" : "AggregateRating",
+          "ratingValue" : "5"
+        }
+      }
+    `
+    document.head.appendChild(script);
   }, []);
 
   return (
