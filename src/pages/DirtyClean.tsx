@@ -36,6 +36,10 @@ const Buttons = (props: {
 
 export const DirtyClean = () => {
 
+  React.useEffect(() => {
+    document.title = "Dirty Clean";
+  }, []);
+
   return (
     <Row noGutters>
       <Col 

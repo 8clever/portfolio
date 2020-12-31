@@ -44,6 +44,7 @@ export class Index extends Component<IProps, IState> {
 	lightbox = new Lightbox();
 
 	componentDidMount() {
+		document.title = "VIP Software"
 		this.lightbox.init();
 	}
 
