@@ -7,10 +7,11 @@ import {
 	NavLink as ReactNavLink,
 	Button
 } from "reactstrap";
-import { Link, LinkProps } from "react-router-dom";
 import { SpyScroll } from "../utils";
 import { observer } from "mobx-react-lite";
 import { langStore, I18n, Lang } from "../store/lang";
+import Link, { LinkProps } from "next/link";
+import { github } from "./Footer";
 
 const size = "lg";
 
@@ -27,7 +28,7 @@ export const Header = observer(() => {
 
 	React.useEffect(() => {
 		window.onscroll = onscroll;
-		setImmediate(onscroll);
+		setTimeout(onscroll);
 	}, []);
 
 	return (
@@ -38,12 +39,26 @@ export const Header = observer(() => {
 			}} 
 			expand={size}>
 			<div className="container">
-				<NavbarBrand to={"/"}>
-					<img alt='8clever' height="43px" src="/favicon.ico" />
-					&nbsp;
-					<strong className="text-info h2 font-weight-bold">
-						VIP - Software
-					</strong>
+				<NavbarBrand href={"/"}>
+					<div style={{
+						display: "flex"
+					}}>
+						<img 
+							style={{
+								marginRight: 5
+							}}
+							alt='8clever' 
+							height="43px" 
+							src="/favicon.ico" />
+						<h1 
+							style={{
+								display: "inline-block",
+								margin: 0
+							}}
+							className="text-info h2 font-weight-bold">
+							VIP - Software
+						</h1>
+					</div>
 				</NavbarBrand>
 				<NavbarToggler onClick={toggleNavbar} />
 				<Collapse isOpen={!collapsed} navbar>
@@ -63,14 +78,10 @@ export const Header = observer(() => {
 							name="Portfolio"
 							active={spy === "portfolio"}
 						/>
-						<SpyButton
-							id="about-us"
-							name="About Us"
-							active={spy === "about-us"}
-						/>
 						<NavItem>
-							<ReactNavLink href="https://github.com/8clever/">
+							<ReactNavLink>
 								<Button
+									href={github}
 									style={{
 										whiteSpace: "nowrap"
 									}}
@@ -148,10 +159,16 @@ function SpyButton({ id, name, active, className }: SpyButtonProps) {
 	);
 }
 
-function NavbarBrand(props: LinkProps) {
+interface NavbarBrandProps extends LinkProps {
+	children?: React.ReactNode
+}
+
+function NavbarBrand(props: NavbarBrandProps) {
 	return (
-		<Link {...props} className="navbar-brand">
-			{props.children}
+		<Link {...props}>
+			<a className="navbar-brand">
+				{props.children}
+			</a>
 		</Link>
 	);
 }

@@ -107,7 +107,7 @@ export class Image extends React.Component<ImageProps, ImageState> {
 					alt={this.props.alt}
 					style={style.image}
 					onLoad={this.resizeImage}
-					onError={e => {
+					onError={() => {
 						if (this.props.noImageSrc === undefined) {
 							return;
 						}

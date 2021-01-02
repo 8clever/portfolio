@@ -1,63 +1,36 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.3.0",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.19.8",
-    "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.10",
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
+    "bootstrap-scss": "^4.5.3",
     "lodash": "^4.17.20",
     "mobx": "^6.0.4",
     "mobx-react-lite": "^3.1.6",
     "moment": "^2.29.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-markdown": "^4.3.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "reactstrap": "^8.7.1",
-    "typescript": "^4.1.2",
-    "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "node server",
-    "start:dev": "npm run def & react-scripts start",
-    "build": "npm run def & react-scripts build",
-    "def": "node bin/makeDictionary"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "next": "latest",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-markdown": "^5.0.3",
+    "reactstrap": "^8.8.1",
+    "sass": "^1.32.0",
+    "schema-dts": "^0.8.2",
+    "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.165",
-    "@types/react-router-dom": "^5.1.6",
-    "@types/reactstrap": "^8.7.2",
-    "bootstrap-scss": "^4.5.3",
-    "node-sass": "^4.14.1"
+    "@types/lodash": "^4.14.167",
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "typescript": "4.0"
   },
+  "license": "MIT",
   "engines": {
     "node": "11.5.0"
   }

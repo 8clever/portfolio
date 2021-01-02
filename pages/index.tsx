@@ -1,9 +1,10 @@
 import React from "react";
+import { Layout } from "../src/components/Layout";
 import {
 	Component,
 	Lightbox,
 	SpyScroll
-} from "../utils";
+} from "../src/utils";
 import {
 	Row,
 	Col,
@@ -15,23 +16,27 @@ import {
 import {
 	Image,
 	Video
-} from "../components";
+} from "../src/components";
 import MD from "react-markdown";
-import { I18n, langStore } from "../store/lang";
+import { I18n, langStore, Lang } from "../src/store/lang";
 import { Observer } from "mobx-react-lite";
 import _ from "lodash";
 
-import porfolioDictonary from "../portfolioDictionary.json";
+import { Header } from "../src/components/Header";
+import { Footer } from "../src/components/Footer";
+import { GetStaticProps } from "next";
 
-import bg1 from "../images/bg1.jpg";
-import bg2 from "../images/bg2.jpg";
-import splash from "../images/coding_man.jpg";
-import video from "../images/coding_man.mp4";
+// server side only
+import fs from "fs";
+import path from "path";
 
-// styles
-import "../style/style.scss";
+const bg1 = "/images/bg1.jpg";
+const splash = "/images/coding_man.jpg";
+const coding_man = "/coding_man.mp4";
 
-interface IProps {}
+interface IProps {
+	portfolio: Portfolio[]
+}
 
 interface IState {
 	[key: string]: boolean;
@@ -44,7 +49,6 @@ export class Index extends Component<IProps, IState> {
 	lightbox = new Lightbox();
 
 	componentDidMount() {
-		document.title = "VIP Software"
 		this.lightbox.init();
 	}
 
@@ -58,13 +62,13 @@ export class Index extends Component<IProps, IState> {
 				<SpyScroll id="home" offsetY={0} />
 				<Video
 					className="d-none d-sm-none d-md-block"
-					videoUrl={video}
+					videoUrl={coding_man}
 					posterUrl={splash}>
 					<div className="absolute d-flex">
 						<div className={"text-center m-auto p-5 border text-white"}>
-							<div className="display-4 font-weight-bold">
-								<I18n string="PURE DEVELOPMENT" />
-							</div>
+							<h1 className="display-4 font-weight-bold">
+									<I18n string="PURE DEVELOPMENT" />
+							</h1>
 							<I18n string="We create fast, stable, modern technology projects." />
 						</div>
 					</div>
@@ -74,9 +78,9 @@ export class Index extends Component<IProps, IState> {
 				<div className="d-md-none d-lg-none mb-5">&nbsp;</div>
 				<div className="mb-5" />
 				<div className="text-center">
-					<h1 className="font-weight-bold">
+					<h2 className="font-weight-bold">
 						<I18n string="Our Services" />
-					</h1>
+					</h2>
 					<Separator />
 					<I18n string="We can create projects for any platform which you want." />
 				</div>
@@ -112,32 +116,32 @@ export class Index extends Component<IProps, IState> {
 				<Section img={bg1}>
 					<div className="mb-5" />
 					<div className="text-center">
-						<h1 className="font-weight-bold">
+						<h2 className="font-weight-bold">
 							<I18n string="Our Skills" />
-						</h1>
+						</h2>
 						<Separator />
 						<I18n string="Features which we already use in projects." />
 					</div>
 
 					<div className="mb-5" />
 					<div className="px-4">
-						<h4 className="text-center">
+						<div className="text-center h4">
 							<DotPoint /> Nodejs &nbsp;
 							<DotPoint /> TypeScript &nbsp;
 							<DotPoint /> C# &nbsp;
-						</h4>
-						<h4 className="text-center">
+						</div>
+						<div className="text-center h4">
 							<DotPoint /> MongoDB &nbsp;
 							<DotPoint /> MySQL &nbsp;
 							<DotPoint /> PouchDB &nbsp;
 							<DotPoint /> CouchDB &nbsp;
-						</h4>
-						<h4 className="text-center">
+						</div>
+						<div className="text-center h4">
 							<DotPoint /> React &nbsp;
 							<DotPoint /> Webpack &nbsp;
 							<DotPoint /> MobX &nbsp;
 							<DotPoint /> Unity3D &nbsp;
-						</h4>
+						</div>
 					</div>
 					<div className="mb-5" />
 				</Section>
@@ -145,9 +149,9 @@ export class Index extends Component<IProps, IState> {
 				<SpyScroll id="portfolio" offsetY={0} />
 				<div className="mb-5" />
 				<div className="text-center">
-					<h1 className="font-weight-bold">
+					<h2 className="font-weight-bold">
 						<I18n string="Portfolio" />
-					</h1>
+					</h2>
 					<Separator />
 					<I18n string="Projects which we writed or maintained." />
 					</div>
@@ -156,7 +160,7 @@ export class Index extends Component<IProps, IState> {
 				<Row noGutters>
 					<Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 9 }}>
 						{
-							_.map(porfolioDictonary, (project, idx) => {
+							_.map(this.props.portfolio, (project, idx) => {
 								const isOpen = !!this.state[project.name];
 
 								return (
@@ -217,61 +221,6 @@ export class Index extends Component<IProps, IState> {
 					</Col>
 				</Row>
 				<div className="mb-5"></div>
-
-				<SpyScroll id="about-us" offsetY={0} />
-				<Section img={bg2}>
-					<div className="mb-5"></div>
-					<div className="text-center">
-						<h1 className="font-weight-bold">
-							<I18n string="About Us" />
-						</h1>
-						<Separator />
-					</div>
-					<div className="mb-5" />
-
-					<Row noGutters>
-						<Col md={6} className="px-4">
-							<FeatureCard
-								color="white"
-								icon="clock"
-								title={<I18n string="Total Working Hours" />}
-								description="10000+"
-							/>
-						</Col>
-						<Col md={6} className="px-4">
-							<b><I18n string="Full Name" /></b>: <I18n string="Ivan Vityaev" />
-							<br />
-
-							<b>e-mail</b>: godofluck89@gmail.com
-							<br />
-
-							<b><I18n string="phone" /></b>: 8 (958) 500-56-02
-							<br />
-
-							<b><I18n string="Source Code" /></b>: <a href="https://github.com/8clever/portfolio">
-								https://github.com/8clever/portfolio
-							</a>
-							<br />
-
-							<i 
-								onClick={() => {
-									window.open("https://vk.com/ivanvityaev", "_blank");
-								}} 
-								className="fab fa-vk fa-2x text-white" 
-							/>
-							{" "}
-
-							<i 
-								onClick={() => {
-									window.open("https://www.facebook.com/indigo.extreem", "_blank")
-								}}
-								className="fab fa-facebook fa-2x text-white" 
-							/>
-						</Col>
-					</Row>
-					<div className="mb-5"></div>
-				</Section>
-
 			</div>
 		);
 	}
@@ -327,32 +276,6 @@ function Icon({ size, icon, set = "", color = "info" }: IconProps) {
 	);
 }
 
-interface FeatureCardProps {
-	icon: string;
-	set?: string;
-	title: React.ReactNode;
-	description: string;
-	color: string;
-}
-
-function FeatureCard({ icon, set, title, description, color }: FeatureCardProps) {
-	return (
-		<div className="d-flex">
-			<div className="w-50 text-right">
-				<Icon
-					color={color}
-					set={set}
-					icon={icon}
-					size="2"
-				/>
-			</div>
-			<div className="p-3 w-100 text-left">
-				<b>{title}:</b> {description}
-			</div>
-		</div>
-	);
-}
-
 interface SkillCardProps {
 	icon: string;
 	title: string;
@@ -367,10 +290,64 @@ function SkillCard({ icon, title, description }: SkillCardProps) {
 				icon={icon}
 			/>
 
-			<h5 className="font-weight-bold">
+			<div className="font-weight-bold h4">
 				{title}
 				{description}
-			</h5>
+			</div>
 		</div>
 	);
 }
+
+interface Portfolio {
+	description: {
+			[key: string]: string;
+	};
+	name: string;
+	screens: string[];
+}
+
+export const getStaticProps: GetStaticProps<IProps> = async () => {
+	const portfolioPath = path.resolve("public/portfolio");
+	const langs = Object.keys(langStore.langsMap) as Lang[];
+
+	const portfolioDictionary = _.map(fs.readdirSync(portfolioPath), project => {
+		const projectDir = path.join(portfolioPath, project);
+		const files = fs.readdirSync(projectDir);
+		const screens = _.filter(files, f => {
+				return (
+						/.png/.test(f) ||
+						/.jpg/.test(f)
+				)
+		});
+		const description: {[key: string]: string} = {};
+	
+		langs.forEach(lang => {
+				description[lang] = fs.readFileSync(`${projectDir}/info.${lang}.txt`).toString();
+		});
+	
+		return {
+			description,
+			name: project,
+			screens: _.map(screens, s => `${project}/${s}`)
+		};
+	});
+
+	return {
+		props: {
+			portfolio: portfolioDictionary
+		}
+	}
+}
+
+const IndexPage = (props: IProps) => (
+  <Layout 
+    title="VIP Software. Ivan Vityaev. Fast, stable, modern technology projects."
+    keywords="vip software, ivan, vityaev, web, development"
+    description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">
+    <Header />
+		<Index {...props} />
+		<Footer />
+  </Layout>
+)
+
+export default IndexPage

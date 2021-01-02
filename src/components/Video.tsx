@@ -28,7 +28,7 @@ export class Video extends React.Component<IProps> {
 					muted
 					loop>
 					{
-						window.innerWidth > 992 ?
+						process.browser && window.innerWidth > 992 ?
 						<source src={this.props.videoUrl} type="video/mp4" /> :
 						null
 					}

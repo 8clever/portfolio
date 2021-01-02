@@ -74,3 +74,16 @@
 .border-radius-20 {
     border-radius: 20px;
 }
+
+.footer {
+    & a {
+        color: #b3b3b3;
+        transition: 0.3s all;
+        &:hover {
+            color: whitesmoke
+        }
+    }
+    & *:not(a) {
+        color: whitesmoke !important
+    }
+}
