@@ -21,6 +21,7 @@
     "reactstrap": "^8.8.1",
     "sass": "^1.32.0",
     "schema-dts": "^0.8.2",
+    "sharp": "^0.27.0",
     "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git"
   },
   "devDependencies": {
