@@ -9,6 +9,11 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "@types/lodash": "^4.14.167",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "typescript": "4.0",
+    "@types/node": "^12.12.21",
     "bootstrap-scss": "^4.5.3",
     "lodash": "^4.17.20",
     "mobx": "^6.0.4",
@@ -23,13 +28,6 @@
     "schema-dts": "^0.8.2",
     "sharp": "^0.27.0",
     "wa-mediabox": "git://github.com/jirihybek/wa-mediabox.git"
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.167",
-    "@types/node": "^12.12.21",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "typescript": "4.0"
   },
   "license": "MIT",
   "engines": {
