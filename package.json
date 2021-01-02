@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "npm i -g next && next start -p $PORT",
     "type-check": "tsc"
   },
   "dependencies": {
