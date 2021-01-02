@@ -1,7 +1,7 @@
 import { Button, Row, Col } from "reactstrap";
 import React from "react";
 import { Layout } from "../src/components/Layout";
-import { config } from "../config";
+import { config as systemconfig } from "../config";
 import { Footer } from "../src/components/Footer";
 import Image from "next/image";
 
@@ -16,7 +16,7 @@ export const DirtyClean = () => {
         "@context" : "https://schema.org",
         "@type" : "MobileApplication",
         "name" : "Dirty Clean",
-        "image" : config.domain + mobile,
+        "image" : systemconfig.domain + mobile,
         "author" : {
           "@type" : "Person",
           "name" : "Ivan Vityaev"
@@ -114,6 +114,10 @@ export const DirtyClean = () => {
       <Footer />
     </Layout>
   )
+}
+
+export const config = {
+  amp: "hybrid"
 }
 
 export default DirtyClean;

@@ -339,6 +339,10 @@ export const getStaticProps: GetStaticProps<IProps> = async () => {
 	}
 }
 
+export const config = {
+	amp: "hybrid"
+}
+
 const IndexPage = (props: IProps) => (
   <Layout 
     title="VIP Software. Ivan Vityaev. Fast, stable, modern technology projects."
