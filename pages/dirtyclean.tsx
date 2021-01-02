@@ -3,6 +3,7 @@ import React from "react";
 import { Layout } from "../src/components/Layout";
 import { config } from "../config";
 import { Footer } from "../src/components/Footer";
+import Image from "next/image";
 
 const bg = "/images/back2-min.jpg";
 const mobile = "/images/mobile-dirtyclean.png";
@@ -45,14 +46,17 @@ export const DirtyClean = () => {
             background: `url("${bg}") content-box center / cover no-repeat`,
             height: "100vh" 
           }}>
-          <img 
-            style={{
-              maxHeight: "95vh"
-            }}
-            className='img-fluid m-auto'
-            alt="Dirty Clean"
-            src={mobile} 
-          />
+          <div className="m-auto" style={{
+            maxHeight: "95vh"
+          }}>
+            <Image 
+              height={1000}
+              width={500}
+              alt="Dirty Clean"
+              src={mobile} 
+              className="img-fluid"
+            />
+          </div>
         </Col>
         <Col
           style={{

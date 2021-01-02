@@ -15,7 +15,7 @@ export const Footer = () => {
         <div className="mb-2">
           <Link href="/">Home</Link> <br />
         </div>
-        <div>
+        <div className="mb-2">
           <Link href="/dirtyclean">Dirty Clean</Link>
         </div>
       </Col>
