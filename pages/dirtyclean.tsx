@@ -41,20 +41,21 @@ export const DirtyClean = () => {
         <Col 
           sm={12}
           lg={6}
-          className="d-flex"
           style={{ 
             background: `url("${bg}") content-box center / cover no-repeat`,
-            height: "100vh" 
+            height: "100vh",
+            display: "flex"
           }}>
-          <div className="m-auto" style={{
-            maxHeight: "95vh"
+          <div style={{
+            margin: "auto",
+            position: "relative",
+            height: "90vh",
+            width: "calc(90vh/2)"
           }}>
             <Image 
-              height={1000}
-              width={500}
               alt="Dirty Clean"
-              src={mobile} 
-              className="img-fluid"
+              src={mobile}
+              layout="fill"
             />
           </div>
         </Col>

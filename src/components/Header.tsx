@@ -41,9 +41,10 @@ export const Header = observer(() => {
 			<div className="container">
 				<NavbarBrand href={"/"}>
 					<div style={{
-						display: "flex"
+						display: "flex",
 					}}>
 						<img 
+							className="d-none d-sm-block"
 							style={{
 								marginRight: 5
 							}}
