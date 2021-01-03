@@ -1,0 +1,84 @@
+.app-body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.err-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.scroll {
+  min-height: 0px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.video-header {
+  position: relative;
+  video {
+      width: 100%
+  }
+}
+
+.separator {
+  margin: auto;
+  width: 70px;
+  position: relative;
+  border-top: 2px solid #61d2b4;
+  margin-bottom: 15px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 1px solid #f1f1f1;
+  display: inline-block;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.cursor-pointer {
+  cursor: pointer
+}
+
+.wa-mediabox-overlay {
+z-index: 1050;
+}
+
+.absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.border-radius-20 {
+  border-radius: 20px;
+}
+
+.footer {
+  & a {
+      color: #b3b3b3;
+      transition: 0.3s all;
+      &:hover {
+          color: whitesmoke
+      }
+  }
+  & *:not(a) {
+      color: whitesmoke !important
+  }
+}
+
+amp-img .amp-active {
+  background-color: transparent;
+}

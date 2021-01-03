@@ -21,8 +21,9 @@ export const Layout = ({
   structuredData
 }: Props) => {
 
-  const isAmp = useAmp();
   const router = useRouter();
+
+  const amp = useAmp();
   
   if (title.length < 50) {
     throw new Error("Invalid length of title");
@@ -30,13 +31,11 @@ export const Layout = ({
   if (description.length < 110) {
     throw new Error("Invalid length of description");
   }
-
   return (
     <div>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="keywords" content={keywords} />
         <meta name="description" content={description} />
         <meta name="yandex-verification" content="2f0734bcc1260adb" />
@@ -45,11 +44,12 @@ export const Layout = ({
         <link rel="icon" href="favicon.ico" />
         <link rel="canonical" href={config.domain + router.pathname} />
         {
-          isAmp ? 
+          amp ?
           <>
-            
-          </> : 
-          null
+          </> :
+          <>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          </>
         }
         {
           structuredData ?
