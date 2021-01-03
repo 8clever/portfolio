@@ -1,6 +1,6 @@
 # Portfolio
 
-Explore website by [link](https://simple-games.fun)
+Explore website by [link](simple-games.fun)
 
 ## Production
 
