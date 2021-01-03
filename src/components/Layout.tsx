@@ -1,6 +1,9 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { Thing, WithContext } from 'schema-dts';
+import amp from "next/amp";
+import { useRouter } from "next/router"
+import { config } from '../../config';
 
 type Props = {
   children?: ReactNode;
@@ -17,6 +20,9 @@ export const Layout = ({
   description = "",
   structuredData
 }: Props) => {
+
+  const isAmp = amp.useAmp();
+  const router = useRouter();
   
   if (title.length < 50) {
     throw new Error("Invalid length of title");
@@ -37,6 +43,14 @@ export const Layout = ({
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="icon" href="favicon.ico" />
+        <link rel="canonical" href={config.domain + router.pathname} />
+        {
+          isAmp ? 
+          <>
+            
+          </> : 
+          null
+        }
         {
           structuredData ?
           <script type="application/ld+json">
