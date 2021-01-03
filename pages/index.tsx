@@ -29,6 +29,7 @@ import { GetStaticProps } from "next";
 // server side only
 import fs from "fs";
 import path from "path";
+import { config } from "../config";
 
 const bg1 = "/images/bg1.jpg";
 const splash = "/images/coding_man.jpg";
@@ -66,9 +67,9 @@ export class Index extends Component<IProps, IState> {
 					posterUrl={splash}>
 					<div className="absolute d-flex">
 						<div className={"text-center m-auto p-5 border text-white"}>
-							<h1 className="display-4 font-weight-bold">
+							<div className="display-4 font-weight-bold">
 									<I18n string="PURE DEVELOPMENT" />
-							</h1>
+							</div>
 							<I18n string="We create fast, stable, modern technology projects." />
 						</div>
 					</div>
@@ -340,7 +341,13 @@ export const getStaticProps: GetStaticProps<IProps> = async () => {
 }
 
 const IndexPage = (props: IProps) => (
-  <Layout 
+	<Layout 
+		structuredData={{
+			"@type": "Organization",
+			"@context": "https://schema.org",
+			url: config.domain,
+			logo: config.domain + "/logo.png"
+		}}
     title="VIP Software. Ivan Vityaev. Fast, stable, modern technology projects."
     keywords="vip software, ivan, vityaev, web, development"
     description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">

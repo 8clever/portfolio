@@ -89,7 +89,7 @@ export const DirtyClean = () => {
             <p>
               Explore different branches of improvements. Reveal all the chains of character interactions. Complete all missions and levels. Learn Zen in dirty cleaning. May the broom be with you!
             </p>
-            <h1>Download Now</h1>
+            <h2>Download Now</h2>
             <hr 
               style={{
                 borderColor: "whitesmoke"
