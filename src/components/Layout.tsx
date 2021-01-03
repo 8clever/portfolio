@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { Thing, WithContext } from 'schema-dts';
-import amp from "next/amp";
+import { useAmp } from "next/amp";
 import { useRouter } from "next/router"
 import { config } from '../../config';
 
@@ -21,7 +21,7 @@ export const Layout = ({
   structuredData
 }: Props) => {
 
-  const isAmp = amp.useAmp();
+  const isAmp = useAmp();
   const router = useRouter();
   
   if (title.length < 50) {
