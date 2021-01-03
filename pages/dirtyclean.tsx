@@ -55,6 +55,7 @@ export const DirtyClean = () => {
             width: "calc(90vh/2)"
           }}>
           <Image
+            quality={5}
             alt="Dirty Clean mobile preview"
             src={mobile}
             layout="fill"
