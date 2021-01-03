@@ -4,15 +4,12 @@ import { Layout } from "../src/components/Layout";
 import { config as systemconfig } from "../config";
 import { Footer } from "../src/components/Footer";
 
-import { useAmp } from "next/amp";
 import Image from "next/image";
 
 const bg = "/images/back2-min.jpg";
 const mobile = "/images/mobile-dirtyclean.png";
 
 export const DirtyClean = () => {
-
-  const amp = useAmp();
 
   return (
     <Layout 
@@ -57,18 +54,10 @@ export const DirtyClean = () => {
             height: "90vh",
             width: "calc(90vh/2)"
           }}>
-            {
-              amp ?
-              <amp-img 
-                alt={"Dirty Clean"}
-                src={mobile} 
-                layout="fill"
-              /> :
-              <Image
-                src={mobile}
-                layout="fill"
-              />
-            }
+          <Image
+            src={mobile}
+            layout="fill"
+          />
           </div>
         </Col>
         <Col
@@ -110,20 +99,14 @@ export const DirtyClean = () => {
               className="mr-2 mb-2"
               href="https://apps.apple.com/ru/app/dirty-clean/id1541008540"
               size="lg">
-              {
-                amp ? null :
-                <i className="fab fa-apple mr-2" />
-              }
+              <i className="fab fa-apple mr-2" />
               iOS
             </Button>
             <Button 
               className="mr-2 mb-2"
               href="https://play.google.com/store/apps/details?id=com.VIPSoftware.DirtyClean&hl=ru&gl=US"
               size="lg">
-              {
-                amp ? null :
-                <i className="fab fa-android mr-2" />
-              }
+              <i className="fab fa-android mr-2" />
               Android
             </Button>
           </div>
@@ -132,10 +115,6 @@ export const DirtyClean = () => {
       <Footer />
     </Layout>
   )
-}
-
-export const config = {
-  amp: true
 }
 
 export default DirtyClean;
