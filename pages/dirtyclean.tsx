@@ -4,9 +4,22 @@ import { Layout } from "../src/components/Layout";
 import { config as systemconfig } from "../config";
 import { Footer } from "../src/components/Footer";
 
+import Image from "next/image";
+
+const bg = "/images/back2-min.jpg";
 const mobile = "/images/mobile-dirtyclean.png";
 
+const Separator = () => (
+  <hr 
+    style={{
+      borderColor: "whitesmoke"
+    }}
+  />
+)
+
 export const DirtyClean = () => {
+
+  const [ activeYoutube, setActiveYoutube ] = React.useState(false);
 
   return (
     <Layout 
@@ -40,18 +53,49 @@ export const DirtyClean = () => {
           sm={12}
           lg={6}
           style={{ 
+            position: "relative",
+            background: `url("${bg}") content-box center / cover no-repeat`,
             minHeight: "100vh",
             display: "flex"
           }}>
+          {
+            activeYoutube ?
             <iframe 
-              frameBorder="0"
-              className="m-auto"
               width="100%" 
               height="100%" 
-              src="https://www.youtube.com/embed/dQ47BPZUTjg" 
+              src="https://www.youtube.com/embed/dQ47BPZUTjg?autoplay=1" 
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen>
-            </iframe>
+              allowFullScreen /> :
+            <>
+              <div style={{
+                margin: "auto",
+                position: "relative",
+                height: "90vh",
+                width: "calc(90vh/2)"
+              }}>
+                <Image
+                  quality={5}
+                  alt="Dirty Clean mobile preview"
+                  src={mobile}
+                  layout="fill"
+                />
+              </div>
+              <Button 
+                style={{
+                  position: "absolute",
+                  right: 10,
+                  bottom: 10
+                }}
+                color="danger"
+                className="mr-2 mb-2"
+                onClick={() => setActiveYoutube(true)}
+                size="lg">
+                <i className="fa fa-play mr-2" />
+                YouTube
+              </Button>
+            </>
+          }
         </Col>
         <Col
           style={{
@@ -67,12 +111,10 @@ export const DirtyClean = () => {
               fontSize: 20
             }}
             className="p-5 m-auto">
-            <h1>Dirty Clean</h1>
-            <hr 
-              style={{
-                borderColor: "whitesmoke"
-              }}
-            />
+            <h1>
+              Dirty Clean
+            </h1>
+            <Separator />
             <p>
               May the broom be with you!
             </p>
@@ -83,11 +125,7 @@ export const DirtyClean = () => {
               Explore different branches of improvements. Reveal all the chains of character interactions. Complete all missions and levels. Learn Zen in dirty cleaning. May the broom be with you!
             </p>
             <h2>Download Now</h2>
-            <hr 
-              style={{
-                borderColor: "whitesmoke"
-              }}
-            />
+            <Separator />
             <Button 
               className="mr-2 mb-2"
               href="https://apps.apple.com/ru/app/dirty-clean/id1541008540"
