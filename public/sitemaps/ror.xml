@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://puzzle.simple-games.fun/</title>
+  <link>https://puzzle.simple-games.fun/</link>
+
+<item>
+     <link>https://puzzle.simple-games.fun/</link>
+     <title>VIP Software. Ivan Vityaev. Fast, stable, modern technology projects.</title>
+     <description>VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://puzzle.simple-games.fun/dirtyclean</link>
+     <title>Dirty Clean. Mobile, casual, simple match2 puzzle game.</title>
+     <description>Logic Match2 puzzle game where the player has to learn all the delights of general cleaning and little more. Explore different branches of improvements</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
