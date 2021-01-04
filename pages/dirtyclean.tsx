@@ -4,9 +4,6 @@ import { Layout } from "../src/components/Layout";
 import { config as systemconfig } from "../config";
 import { Footer } from "../src/components/Footer";
 
-import Image from "next/image";
-
-const bg = "/images/back2-min.jpg";
 const mobile = "/images/mobile-dirtyclean.png";
 
 export const DirtyClean = () => {
@@ -35,32 +32,26 @@ export const DirtyClean = () => {
           "ratingCount" : 1
         }
       }}
-      keywords="dirty, clean, mobile, puzzle, simple, casual, game, match2"
       description="Logic Match2 puzzle game where the player has to learn all the delights of general cleaning and little more. Explore different branches of improvements"
-      title="Dirty Clean. Mobile, casual, simple match2 puzzle game.">
+      title="Dirty Clean. Mobile Casual Simple Match2 Puzzle Game.">
       <Row noGutters>
         <Col 
           className="p-0"
           sm={12}
           lg={6}
           style={{ 
-            background: `url("${bg}") content-box center / cover no-repeat`,
-            height: "100vh",
+            minHeight: "100vh",
             display: "flex"
           }}>
-          <div style={{
-            margin: "auto",
-            position: "relative",
-            height: "90vh",
-            width: "calc(90vh/2)"
-          }}>
-          <Image
-            quality={5}
-            alt="Dirty Clean mobile preview"
-            src={mobile}
-            layout="fill"
-          />
-          </div>
+            <iframe 
+              frameBorder="0"
+              className="m-auto"
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/dQ47BPZUTjg" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen>
+            </iframe>
         </Col>
         <Col
           style={{

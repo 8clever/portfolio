@@ -7,7 +7,6 @@ import { config } from '../../config';
 type Props = {
   children?: ReactNode;
   title?: string;
-  keywords?: string;
   description?: string;
   structuredData?: WithContext<Thing>;
 }
@@ -15,25 +14,24 @@ type Props = {
 export const Layout = ({ 
   children, 
   title = '',
-  keywords = "",
   description = "",
   structuredData
 }: Props) => {
 
   const router = useRouter();
 
-  if (title.length < 50) {
-    throw new Error("Invalid length of title");
+  if (title.length < 50 || title.length > 65) {
+    throw new Error("Invalid length of title. Length: " + title.length);
   }
-  if (description.length < 110) {
-    throw new Error("Invalid length of description");
+  if (description.length < 110 || description.length > 170) {
+    throw new Error("Invalid length of description. Length: " + description.length);
   }
   return (
     <div>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
-        <meta name="keywords" content={keywords} />
+        <meta name="keywords" content="" />
         <meta name="description" content={description} />
         <meta name="yandex-verification" content="2f0734bcc1260adb" />
         <link rel="manifest" href="/manifest.json" />

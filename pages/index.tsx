@@ -348,8 +348,7 @@ const IndexPage = (props: IProps) => (
 			url: config.domain,
 			logo: config.domain + "/logo.png"
 		}}
-    title="VIP Software. Ivan Vityaev. Fast, stable, modern technology projects."
-    keywords="vip software, ivan, vityaev, web, development"
+    title="VIP Software, Ivan Vityaev, Web Development, Puzzle Games"
     description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">
     <Header />
 		<Index {...props} />
