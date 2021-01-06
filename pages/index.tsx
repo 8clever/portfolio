@@ -159,7 +159,7 @@ export class Index extends Component<IProps, IState> {
 				<div className="mb-5" />
 
 				<Row noGutters>
-					<Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 9 }}>
+					<Col lg={{ size: 8, offset: 2 }} md={{ offset: 1, size: 10 }}>
 						{
 							_.map(this.props.portfolio, (project, idx) => {
 								const isOpen = !!this.state[project.name];

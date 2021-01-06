@@ -19,10 +19,11 @@ export const Footer = () => {
   return (
     <Row 
       noGutters
-      className="p-5 footer" style={{
+      className="p-5 gx-5 footer" style={{
       backgroundColor: "#212121",
     }}>
-      <Col md={4}>
+      <Col 
+        md={2}>
         <LinkButton href="/">
           Home
         </LinkButton>
@@ -30,7 +31,8 @@ export const Footer = () => {
           Dirty Clean
         </LinkButton>
       </Col>
-      <Col md={4}>
+      <Col 
+        md={2}>
         <LinkButton href={fb}>
           FaceBook
         </LinkButton>
@@ -41,10 +43,14 @@ export const Footer = () => {
           GitHub
         </LinkButton>
       </Col>
-      <Col md={4}>
+      <Col md={{
+        size: 4,
+        offset: 4
+      }}>
         Organization: VIP Software <br/>
         Person: Ivan Vityaev <br />
         Phone: 8(958)500-56-02 <br />
+        e-mail: godofluck89@gmail.com
       </Col>
     </Row>
   )
