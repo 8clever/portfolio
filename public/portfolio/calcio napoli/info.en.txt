@@ -1,0 +1,15 @@
+
+### Calcio Napoli
+
+Napoli football club news site.
+
+Designed to deliver high rates of organic traffic on the web.
+In the first week, we entered the top 20 organic search results, which showed the high efficiency of SEO optimization developed in our company.
+
+The site is available by [link](https://calcio-napoli.com)
+
+Technology stack: Node.js, TypeScript, React, AMP
+
+Team: 1 developer, 1 content filler
+
+Role: Main developer

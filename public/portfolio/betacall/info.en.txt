@@ -1,9 +1,9 @@
 
 ### Betacall 4all
 
-https://niti.betacall4all.ru
-
 Web application for automatic customer call.
+
+Site allowed by [link](https://niti.betacall4all.ru)
 
 The system calls customers by orders. If the customer got through, the call is transferred to the operator and the order opens automatically.
 The operator only has to confirm the delivery conditions, or cancel the order.
