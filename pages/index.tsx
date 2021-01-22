@@ -196,9 +196,6 @@ export class Index extends Component<IProps, IState> {
 																	{
 																		isOpen ?
 																		<Image
-																			style={{
-																				boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-																			}}
 																			alt={src}
 																			mediabox={project.name}
 																			className="mx-auto mb-4"
