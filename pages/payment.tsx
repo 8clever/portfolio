@@ -1,6 +1,6 @@
 import { Layout } from "../src/components/Layout";
 import QRCode from "qrcode.react";
-import { Row, Col, FormGroup, Input, Label } from "reactstrap";
+import { Row, Col, FormGroup, Input, Label, Alert } from "reactstrap";
 import React from "react";
 
 export const Payment = () => {
@@ -28,6 +28,23 @@ export const Payment = () => {
                 value={payment}
               />
             </div>
+            <Alert color="warning">
+              Внимание! QR код действителен только в приложении Сбербанк Онлайн
+            </Alert>
+            <Alert color="info">
+              Инструкция
+              <ul className="app-info">
+                <li>
+                  Введите свои Адрес, ФИО и сумму (QR-code генерируется автоматически)
+                </li>
+                <li>
+                  Через приложение Сбербанк Онлайн отсканируйте предолженный системой QR код
+                </li>
+                <li>
+                  После оплаты, отправьте чек на WhatsApp по номеру телефона +7(925)579-99-45
+                </li>
+              </ul>
+            </Alert>
             <h1>ООО "АРК-Телеком"</h1>
             <div>ИНН: 5032232243</div>
             <div>КПП: 503201001</div>
@@ -38,6 +55,7 @@ export const Payment = () => {
             <FormGroup>
               <Label>Адрес</Label>
               <Input 
+                required
                 placeholder="Рублёвский проезд, д.20б, кв.103"
                 value={adress}
                 onChange={e => {
@@ -46,8 +64,9 @@ export const Payment = () => {
               />
             </FormGroup>
             <FormGroup>
-              <Label>Плательщик</Label>
+              <Label>ФИО Плательщика</Label>
               <Input 
+                required
                 placeholder="Иванов Пётр Петрович"
                 value={payer}
                 onChange={e => {
@@ -58,6 +77,7 @@ export const Payment = () => {
             <FormGroup>
               <Label>Cумма (р.)</Label>
               <Input 
+                required
                 type="number"
                 placeholder="500"
                 value={amount}
@@ -79,6 +99,11 @@ export const Payment = () => {
           .container {
             margin-top: 60px;
           }
+        }
+        .app-info {
+          list-style: decimal;
+          padding-left: 25px;
+          margin: 0px;
         }
         .qr-container {
           display: inline-block;
