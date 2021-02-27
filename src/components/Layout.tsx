@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { config } from '../../config';
 
 type Props = {
+  ignoreValidation?: boolean;
   children?: ReactNode;
   title?: string;
   description?: string;
@@ -15,17 +16,21 @@ export const Layout = ({
   children, 
   title = '',
   description = "",
-  structuredData
+  structuredData,
+  ignoreValidation
 }: Props) => {
 
   const router = useRouter();
 
-  if (title.length < 50 || title.length > 65) {
-    throw new Error("Invalid length of title. Length: " + title.length);
+  if (!ignoreValidation) {
+    if (title.length < 50 || title.length > 65) {
+      throw new Error("Invalid length of title. Length: " + title.length);
+    }
+    if (description.length < 110 || description.length > 170) {
+      throw new Error("Invalid length of description. Length: " + description.length);
+    }
   }
-  if (description.length < 110 || description.length > 170) {
-    throw new Error("Invalid length of description. Length: " + description.length);
-  }
+  
   return (
     <div>
       <Head>
