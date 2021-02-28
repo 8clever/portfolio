@@ -30,6 +30,9 @@ export const Footer = () => {
         <LinkButton href="/dirtyclean">
           Dirty Clean
         </LinkButton>
+        <LinkButton href="https://www.calcio-napoli.com">
+          Calcio Napoli
+        </LinkButton>
       </Col>
       <Col 
         md={2}>
