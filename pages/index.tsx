@@ -133,15 +133,19 @@ export class Index extends Component<IProps, IState> {
 						</div>
 						<div className="text-center h4">
 							<DotPoint /> MongoDB &nbsp;
-							<DotPoint /> MySQL &nbsp;
-							<DotPoint /> PouchDB &nbsp;
+							<DotPoint /> PostgreSQL &nbsp;
 							<DotPoint /> CouchDB &nbsp;
+							<DotPoint /> Redis &nbsp;
 						</div>
 						<div className="text-center h4">
 							<DotPoint /> React &nbsp;
-							<DotPoint /> Webpack &nbsp;
 							<DotPoint /> MobX &nbsp;
 							<DotPoint /> Unity3D &nbsp;
+							<DotPoint /> Electron &nbsp;
+						</div>
+						<div className="text-center h4">
+							<DotPoint /> Docker &nbsp;
+							<DotPoint /> Kubernetes &nbsp;
 						</div>
 					</div>
 					<div className="mb-5" />
