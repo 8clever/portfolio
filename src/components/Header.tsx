@@ -12,7 +12,7 @@ import { observer } from "mobx-react-lite";
 import { langStore, I18n, Lang } from "../store/lang";
 import Link, { LinkProps } from "next/link";
 import { github } from "./Footer";
-import { useRouter } from "next/router";
+import { config } from '../../config'
 
 const size = "lg";
 
@@ -32,8 +32,6 @@ export const Header = observer(() => {
 		setTimeout(onscroll);
 	}, []);
 
-	const router = useRouter();
-
 	return (
 		<Navbar
 			style={{
@@ -42,7 +40,7 @@ export const Header = observer(() => {
 			}} 
 			expand={size}>
 			<div className="container">
-				<NavbarBrand href={ router.basePath + "/"}>
+				<NavbarBrand href={ config.basePath + "/"}>
 					<div style={{
 						display: "flex",
 					}}>
@@ -53,7 +51,7 @@ export const Header = observer(() => {
 							}}
 							alt='8clever' 
 							height="43px" 
-							src={ router.basePath + "/favicon.ico" } />
+							src={ config.basePath + "/favicon.ico" } />
 						<h1 
 							style={{
 								display: "inline-block",
