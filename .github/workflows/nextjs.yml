@@ -29,14 +29,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "NEXT_PUBLIC_BASE_PATH=${{ github.event.repository.name }}" >> $GITHUB_ENV
-
-      - name: Dump github context
-        run:   echo "$GITHUB_CONTEXT"
-        shell: bash
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-      
       - name: Checkout
         uses: actions/checkout@v3
 

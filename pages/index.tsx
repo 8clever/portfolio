@@ -30,12 +30,14 @@ import { GetStaticProps } from "next";
 import fs from "fs";
 import path from "path";
 import { config } from "../config";
+import { useRouter } from "next/router";
 
 const bg1 = "/images/bg1.jpg";
 const splash = "/images/coding_man.jpg";
 const coding_man = "/coding_man.mp4";
 
 interface IProps {
+	basePath: string;
 	portfolio: Portfolio[]
 }
 
@@ -58,7 +60,8 @@ export class Index extends Component<IProps, IState> {
 	}
 
 	render() {
-		const { basePath } = config;
+		const { basePath } = this.props;
+
 		return (
 			<div>
 				<SpyScroll id="home" offsetY={0} />
@@ -343,6 +346,7 @@ export const getStaticProps: GetStaticProps<Omit<IProps, 'basePath'>> = async ()
 }
 
 const IndexPage = (props: IProps) => {
+	const router = useRouter();
 	return (
 		<Layout 
 			structuredData={{
@@ -354,7 +358,7 @@ const IndexPage = (props: IProps) => {
 			title="VIP Software, Ivan Vityaev, Web Development, Puzzle Games"
 			description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">
 			<Header />
-			<Index {...props} />
+			<Index {...props} basePath={router.basePath} />
 			<Footer />
 		</Layout>
 	)
