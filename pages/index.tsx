@@ -68,7 +68,7 @@ export class Index extends Component<IProps, IState> {
 				<Video
 					className="d-none d-sm-none d-md-block"
 					videoUrl={basePath + coding_man}
-					posterUrl={splash}>
+					posterUrl={basePath + splash}>
 					<div className="absolute d-flex">
 						<div className={"text-center m-auto p-5 border text-white"}>
 							<div className="display-4 font-weight-bold">
