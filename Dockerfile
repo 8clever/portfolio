@@ -1,4 +1,4 @@
-from node:dubnium-alpine
+from node:hydrogen-alpine
 workdir /app
 copy . .
 run npm ci
