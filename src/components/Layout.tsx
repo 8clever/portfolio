@@ -39,7 +39,7 @@ export const Layout = ({
         <meta name="keywords" content="" />
         <meta name="description" content={description} />
         <meta name="yandex-verification" content="2f0734bcc1260adb" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href={ router.basePath + "/manifest.json" } />
         <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="icon" href="favicon.ico" />
         <link rel="canonical" href={config.domain + router.pathname} />

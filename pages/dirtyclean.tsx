@@ -57,7 +57,7 @@ export const DirtyClean = () => {
           lg={6}
           style={{ 
             position: "relative",
-            background: `url("${bg}") content-box center / cover no-repeat`,
+            background: `url("${basePath + bg}") content-box center / cover no-repeat`,
             minHeight: "100vh",
             display: "flex"
           }}>
