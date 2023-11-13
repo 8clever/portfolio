@@ -4,38 +4,27 @@ interface IProps {
 	videoUrl: string;
 	posterUrl: string;
 	className?: string;
+	children?: React.ReactNode;
 }
 
-export class Video extends React.Component<IProps> {
-
-	state = {
-		parentStyles: {}
-	};
-
-	render() {
-		
-		return (
-			<div 
-				className={"video-header " + this.props.className} 
-				style={{
-					position: "relative",
-				}}>
-				<video
-					preload="none"
-					poster={this.props.posterUrl}
-					playsInline
-					autoPlay
-					muted
-					loop>
-					{
-						process.browser && window.innerWidth > 992 ?
-						<source src={this.props.videoUrl} type="video/mp4" /> :
-						null
-					}
-				</video>
-
-				{this.props.children}
-			</div>
-		);
-	}
+export function Video (props: IProps) {
+	const { className, posterUrl, videoUrl, children } = props;
+	return (
+		<div 
+			className={"video-header " + className} 
+			style={{
+				position: "relative",
+			}}>
+			<video
+				preload="none"
+				poster={posterUrl}
+				playsInline
+				autoPlay
+				muted
+				loop>
+				<source src={videoUrl} type="video/mp4" />
+			</video>
+			{children}
+		</div>
+	)
 }

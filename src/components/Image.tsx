@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import Link from "next/link";
 
 interface ImageProps {
 	width: number;
@@ -17,8 +18,8 @@ interface ImageProps {
 export const Image = (props: ImageProps) => {
 	const { src, mediabox, style } = props;
 	return (
-		<a 
-			href={src}
+		<Link 
+			href={new URL(location.origin + src || "")}
 			data-mediabox={mediabox || ""}>
 			<div 
 				className="mx-auto mb-3 img-thumbnail"
@@ -31,6 +32,6 @@ export const Image = (props: ImageProps) => {
 					backgroundPosition: "center",
 					backgroundRepeat: "no-repeat"
 				}} />
-		</a>
+		</Link>
 	)
 }

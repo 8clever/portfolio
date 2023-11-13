@@ -80,9 +80,9 @@ export const Header = observer(() => {
 							active={spy === "portfolio"}
 						/>
 						<NavItem>
-							<ReactNavLink>
+							<ReactNavLink href={github}>
 								<Button
-									href={github}
+									tag="div"
 									style={{
 										whiteSpace: "nowrap"
 									}}
@@ -166,10 +166,8 @@ interface NavbarBrandProps extends LinkProps {
 
 function NavbarBrand(props: NavbarBrandProps) {
 	return (
-		<Link {...props}>
-			<a className="navbar-brand">
-				{props.children}
-			</a>
+		<Link {...props} className="navbar-brand">
+			{props.children}
 		</Link>
 	);
 }
