@@ -5,6 +5,7 @@ import { config as systemconfig } from "../config";
 import { Footer } from "../src/components/Footer";
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const bg = "/images/back2-min.jpg";
 const mobile = "/images/mobile-dirtyclean.png";
@@ -18,6 +19,8 @@ const Separator = () => (
 )
 
 export const DirtyClean = () => {
+
+  const { basePath } = useRouter();
 
   const [ activeYoutube, setActiveYoutube ] = React.useState(false);
 
@@ -77,7 +80,7 @@ export const DirtyClean = () => {
                 <Image
                   quality={5}
                   alt="Dirty Clean mobile preview"
-                  src={mobile}
+                  src={basePath + mobile}
                   layout="fill"
                 />
               </div>
