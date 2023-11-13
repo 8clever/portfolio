@@ -25,9 +25,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^5.0.3",
     "reactstrap": "^8.8.1",
-    "sass": "^1.32.0",
     "schema-dts": "^0.8.2",
-    "sharp": "^0.27.0",
     "typescript": "^5.2.2",
     "wa-mediabox": "^1.0.1"
   },
