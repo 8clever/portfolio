@@ -13,7 +13,8 @@ const nextConfig = {
   // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
   // skipTrailingSlashRedirect: true,
  
-  distDir: 'dist'
+  distDir: 'dist',
+  basePath: process.env.BASE_PATH || "/"
 }
  
 module.exports = nextConfig

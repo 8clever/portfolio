@@ -30,12 +30,14 @@ import { GetStaticProps } from "next";
 import fs from "fs";
 import path from "path";
 import { config } from "../config";
+import { useRouter } from 'next/router'
 
 const bg1 = "/images/bg1.jpg";
 const splash = "/images/coding_man.jpg";
 const coding_man = "/coding_man.mp4";
 
 interface IProps {
+	basePath: string;
 	portfolio: Portfolio[]
 }
 
@@ -58,12 +60,13 @@ export class Index extends Component<IProps, IState> {
 	}
 
 	render() {
+		const { basePath } = this.props;
 		return (
 			<div>
 				<SpyScroll id="home" offsetY={0} />
 				<Video
 					className="d-none d-sm-none d-md-block"
-					videoUrl={coding_man}
+					videoUrl={basePath + coding_man}
 					posterUrl={splash}>
 					<div className="absolute d-flex">
 						<div className={"text-center m-auto p-5 border text-white"}>
@@ -114,7 +117,7 @@ export class Index extends Component<IProps, IState> {
 				<div className="mb-5" />
 
 				<SpyScroll id="our-skills" offsetY={0} />
-				<Section img={bg1}>
+				<Section img={basePath + bg1}>
 					<div className="mb-5" />
 					<div className="text-center">
 						<h2 className="font-weight-bold">
@@ -200,10 +203,10 @@ export class Index extends Component<IProps, IState> {
 																	{
 																		isOpen ?
 																		<Image
-																			alt={src}
+																			alt={basePath + src}
 																			mediabox={project.name}
 																			className="mx-auto mb-4"
-																			src={"/portfolio/" + src}
+																			src={basePath + "/portfolio/" + src}
 																			width={200}
 																			height={200}
 																		/> : null
@@ -308,7 +311,7 @@ interface Portfolio {
 	screens: string[];
 }
 
-export const getStaticProps: GetStaticProps<IProps> = async () => {
+export const getStaticProps: GetStaticProps<Omit<IProps, 'basePath'>> = async () => {
 	const portfolioPath = path.resolve("public/portfolio");
 	const langs = Object.keys(langStore.langsMap) as Lang[];
 
@@ -341,20 +344,23 @@ export const getStaticProps: GetStaticProps<IProps> = async () => {
 	}
 }
 
-const IndexPage = (props: IProps) => (
-	<Layout 
-		structuredData={{
-			"@type": "Organization",
-			"@context": "https://schema.org",
-			url: config.domain,
-			logo: config.domain + "/logo.png"
-		}}
-    title="VIP Software, Ivan Vityaev, Web Development, Puzzle Games"
-    description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">
-    <Header />
-		<Index {...props} />
-		<Footer />
-  </Layout>
-)
+const IndexPage = (props: IProps) => {
+	const router = useRouter();
+	return (
+		<Layout 
+			structuredData={{
+				"@type": "Organization",
+				"@context": "https://schema.org",
+				url: config.domain,
+				logo: config.domain + "/logo.png"
+			}}
+			title="VIP Software, Ivan Vityaev, Web Development, Puzzle Games"
+			description="VIP Software. Ivan Vityaev. We create fast, stable, and modern technology projects. React, Typescript, Node.js, MongoDB">
+			<Header />
+			<Index {...props} basePath={router.basePath} />
+			<Footer />
+		</Layout>
+	)
+}
 
 export default IndexPage
