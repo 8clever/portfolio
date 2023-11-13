@@ -24,11 +24,20 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  NEXT_PUBLIC_BASE_PATH: /${{ github.repository }}
+
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump github context
+        run:   echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager

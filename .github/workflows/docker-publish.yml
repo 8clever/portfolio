@@ -13,7 +13,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  NEXT_PUBLIC_BASE_PATH: /${{ github.repository }}
 
 
 jobs:
