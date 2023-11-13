@@ -1,7 +1,8 @@
 from node:hydrogen-alpine
 workdir /app
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 copy . .
-run apk add python
 run npm ci
 run npm run build
 expose 3000
