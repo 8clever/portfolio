@@ -1,10 +1,6 @@
 # Portfolio
 
-Explore website by [link](https://vip-software.herokuapp.com/)
-
-## Production
-
-```git push heroku master```
+Explore website by [link](https://8clever.github.io/portfolio)
 
 ## Development
 
