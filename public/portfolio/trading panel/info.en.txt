@@ -1,0 +1,12 @@
+### Trading Panel
+
+A simple trading panel that works with all cryptocurrency exchanges, just import Api Key and Secret
+
+Functional
+- Opening positions
+- Setting Stop-Loss and Take-Profit
+- Closing positions
+- Glass filtration
+- Analysis of the order book and determination of control
+
+Stack: NodeJS, Electron, React
