@@ -1,0 +1,26 @@
+### StratX Investing
+
+Trading system. Many trading bots have been developed with flexible settings for each instrument.
+
+Bot functionality
+- Enter the market on a signal
+- Exit on signal or partially
+- Emergency exit from a position
+- Algorithmic pointers
+- Neural pointers
+- Fixing profits in parts or in full
+- Increase/Decrease positions
+
+UI functionality
+- Creating/Editing strategies
+- Multiple Creation/Editing of strategies
+- Setting up exchange accounts
+- Payment for the service in cryptocurrency via Phantom/Metamask/Binance wallets
+
+This high-load project includes many microservices, since algorithmic and neural pointers require fast calculations.
+Each microservice takes up 50-100 MB of memory; optimally, each bot can be loaded with up to 1000 clients, then the bot begins to scale horizontally.
+
+We also developed our own interfaces for integration with exchanges, since from what we have it works slowly (request on average from 1 second),
+which is sometimes extremely catastrophic, we were able to increase the request speed to 100ms, which is already better.
+
+Technology stack: NodeJS, PostgreSQL, MQTT, React
