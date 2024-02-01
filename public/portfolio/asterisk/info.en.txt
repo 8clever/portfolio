@@ -1,0 +1,11 @@
+Available functionality
+
+1. Chat
+2. Audio/Video calls
+3. Asterisk + IAX2
+4. Asterisk + SIP Trunk
+
+The system was developed as an addition to the call center, since most softphones are paid, and those that exist are already outdated, it was decided to develop
+its own system that operators could use.
+
+Technology stack: Asterisk, VanillaJS
