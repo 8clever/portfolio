@@ -32,8 +32,8 @@ import path from "path";
 import { config } from "../config";
 import { useRouter } from "next/router";
 
-const bg1 = "/images/bg1.jpg";
-const splash = "/images/coding_man.jpg";
+const bg1 = "/images/bg1.webp";
+const splash = "/images/coding_man.webp";
 const coding_man = "/coding_man.mp4";
 
 interface IProps {
@@ -321,8 +321,7 @@ export const getStaticProps: GetStaticProps<Omit<IProps, 'basePath'>> = async ()
 		const files = fs.readdirSync(projectDir);
 		const screens = _.filter(files, f => {
 				return (
-						/.png/.test(f) ||
-						/.jpg/.test(f)
+						/.webp/.test(f)
 				)
 		});
 		const description: {[key: string]: string} = {};

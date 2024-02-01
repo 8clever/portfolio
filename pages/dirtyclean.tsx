@@ -7,8 +7,8 @@ import { Footer } from "../src/components/Footer";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const bg = "/images/back2-min.jpg";
-const mobile = "/images/mobile-dirtyclean.png";
+const bg = "/images/back2-min.webp";
+const mobile = "/images/mobile-dirtyclean.webp";
 
 const Separator = () => (
   <hr 
