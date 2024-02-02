@@ -25,7 +25,7 @@ export const Footer = () => {
       </Col>
       <Col 
         className="text-right"
-        md={{ size: 2, offset: 1 }}>
+        md={{ size: 2, offset: 2 }}>
         <Nav vertical>
           <NavItem>
             <Link href="/">
