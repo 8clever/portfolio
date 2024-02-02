@@ -11,7 +11,7 @@ import { SpyScroll } from "../utils";
 import { observer } from "mobx-react-lite";
 import { langStore, I18n, Lang } from "../store/lang";
 import Link, { LinkProps } from "next/link";
-import { github } from "./Footer";
+import { gh } from "./Footer";
 import { useRouter } from "next/router";
 
 const size = "lg";
@@ -83,7 +83,7 @@ export const Header = observer(() => {
 							active={spy === "portfolio"}
 						/>
 						<NavItem>
-							<ReactNavLink href={github}>
+							<ReactNavLink href={gh}>
 								<Button
 									tag="div"
 									style={{
